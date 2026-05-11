@@ -1,10 +1,6 @@
-# TP Introducción a la Bioinformática — Parte 1
+# TP Introducción a la Bioinformática - Parte 1
 
-## Descripción del trabajo
-
-Este trabajo práctico tiene como objetivo adquirir las primeras habilidades en el campo de la Bioinformática. Se desarrollaron scripts para resolver problemas específicos de procesamiento de secuencias biológicas, utilizando BioPerl como herramienta principal.
-
-La enfermedad hereditaria elegida es la **Enfermedad de Huntington (HD)**, catalogada en OMIM bajo el código [#143100](https://omim.org/entry/143100). El gen asociado es **HTT** (Huntingtin), ubicado en el cromosoma 4p16.3. La secuencia de referencia utilizada es el transcripto **NM_001388492.1** (huntingtin isoforma 1, Homo sapiens), obtenida de la base de datos NCBI en formato GenBank.
+La enfermedad hereditaria elegida es la **Enfermedad de Huntington (HD)**, catalogada en OMIM bajo el código [#143100](https://www.omim.org/entry/143100?search=Huntington&highlight=huntington). El gen asociado es **HTT** (Huntingtin), ubicado en el cromosoma 4p16.3. La secuencia de referencia utilizada es el transcripto [NM_001388492.1](https://www.ncbi.nlm.nih.gov/nuccore/NM_001388492.1) (huntingtin isoforma 1, Homo sapiens), obtenida de la base de datos [NCBI Gene](https://www.ncbi.nlm.nih.gov/gene/3064) en formato GenBank.
 
 ## Estructura del repositorio
 
@@ -28,63 +24,6 @@ tp-introduccion-bioinformatica/
 
 > **Nota:** La carpeta `blast_db/` con la base de datos SwissProt no se incluye en el repositorio por su tamaño. Ver instrucciones de instalación más abajo.
 
----
-
-## Instalación del entorno
-
-### Dependencias necesarias
-
-- Linux (se utilizó Arch Linux)
-- Perl v5.42.2 o superior
-- BioPerl (módulos: Bio::SeqIO, Bio::Seq, Bio::Tools::Run::RemoteBlast, Bio::SearchIO, Bio::Tools::CodonTable)
-- BLAST+ 2.17.0 o superior
-
-### Instalación de BioPerl
-
-```bash
-sudo pacman -S perl-app-cpanminus
-cpanm --local-lib=~/perl5 local::lib
-eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
-cpanm --force Bio::Perl
-```
-
-Agregar al `.zshrc` o `.bashrc` para que sea permanente:
-
-```bash
-eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
-```
-
-### Instalación de BLAST+
-
-Descargar desde el FTP del NCBI:
-
-```
-https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.17.0+-x64-linux.tar.gz
-```
-
-```bash
-tar -xzf ncbi-blast-2.17.0+-x64-linux.tar.gz
-sudo mv ncbi-blast-2.17.0+ /opt/ncbi-blast
-export PATH=$PATH:/opt/ncbi-blast/bin
-```
-
-### Preparación de la base de datos SwissProt (para BLAST local)
-
-```bash
-mkdir blast_db
-wget ftp://ftp.ncbi.nlm.nih.gov/blast/db/FASTA/swissprot.gz
-gunzip swissprot.gz
-makeblastdb -in swissprot -dbtype prot -out blast_db/swissprot -title "SwissProt"
-```
-
-### Verificación del entorno
-
-```bash
-bash scripts/verificar_entorno.sh
-```
-
----
-
 ## Modo de uso
 
 > **Importante:** todos los scripts deben ejecutarse siempre desde la raíz del repositorio, no desde dentro de la carpeta `scripts/`. Esto garantiza que las rutas de input y output funcionen correctamente.
@@ -98,8 +37,6 @@ perl scripts/Ex1.pl data/sequence.gb
 cd tp-introduccion-bioinformatica/scripts
 perl Ex1.pl ../data/sequence.gb
 ```
-
----
 
 ## Ejercicio 1 — Procesamiento de secuencias
 
