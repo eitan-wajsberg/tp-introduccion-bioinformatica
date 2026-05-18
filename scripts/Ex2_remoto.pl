@@ -3,7 +3,6 @@ use strict;
 use warnings;
 use Bio::SeqIO;
 use Bio::Tools::Run::RemoteBlast;
-use Bio::SearchIO;
 
 # --- Verificar argumento ---
 if (@ARGV != 1) {
@@ -36,7 +35,7 @@ open(my $fh, '>', $archivo_output) or die "No puedo abrir $archivo_output: $!\n"
 while (my $seq = $seqio->next_seq()) {
     print "Corriendo BLAST para: " . $seq->id() . "\n";
 
-    my $submit = $blast->submit_blast($seq);
+    $blast->submit_blast($seq);
     print "Solicitud enviada. Esperando respuesta del servidor NCBI...\n";
 
     my $intentos = 0;
@@ -46,29 +45,32 @@ while (my $seq = $seqio->next_seq()) {
         print "  Intento $intentos de recuperar resultado...\n";
 
         for my $rid ($blast->each_rid()) {
-            my $result = $blast->retrieve_blast($rid);
+            my $io = $blast->retrieve_blast($rid);
 
-            if (!ref($result)) {
-                next;
+            # Si todavia no esta listo, retrieve_blast devuelve -1
+            next if !ref($io);
+
+            # Iterar sobre los resultados
+            while (my $result = $io->next_result()) {
+                print $fh "=== Resultado BLAST Remoto ===\n";
+                print $fh "Secuencia query: " . $result->query_name() . "\n";
+                print $fh "Base de datos:   " . $result->database_name() . "\n\n";
+
+                my $contador = 0;
+                while (my $hit = $result->next_hit()) {
+                    $contador++;
+                    printf $fh "Hit %-3d: %s\n", $contador, $hit->name();
+                    printf $fh "  Descripcion: %s\n", $hit->description();
+                    printf $fh "  Score:       %s\n", $hit->score();
+                    printf $fh "  E-value:     %s\n", $hit->significance();
+                    printf $fh "  Identidad:   %.1f%%\n\n", $hit->frac_identical() * 100;
+                }
+
+                print $fh "Total hits: $contador\n\n";
+                print "Resultado recibido. $contador hits encontrados.\n";
             }
 
-            print $fh "=== Resultado BLAST Remoto ===\n";
-            print $fh "Secuencia query: " . $result->query_description() . "\n";
-            print $fh "Base de datos:   " . $result->database_name() . "\n\n";
-
-            my $contador = 0;
-            while (my $hit = $result->next_hit()) {
-                $contador++;
-                printf $fh "Hit %-3d: %s\n", $contador, $hit->name();
-                printf $fh "  Descripcion: %s\n", $hit->description();
-                printf $fh "  Score:       %s\n", $hit->score();
-                printf $fh "  E-value:     %s\n", $hit->significance();
-                printf $fh "  Identidad:   %.1f%%\n\n", $hit->frac_identical() * 100;
-            }
-
-            print $fh "Total hits: $contador\n\n";
             $blast->remove_rid($rid);
-            print "Resultado recibido. $contador hits encontrados.\n";
             last WAIT;
         }
 

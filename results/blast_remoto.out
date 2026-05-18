@@ -1,1 +1,36 @@
 === Resultado BLAST Remoto ===
+Secuencia query: NM_001388492_frame_+2_MARCO_CORRECTO
+Base de datos:   Non-redundant UniProtKB/SwissProt sequences
+
+Hit 1  : P42858.2
+  Descripcion: RecName: Full=Huntingtin; AltName: Full=Huntington disease protein; Short=HD protein; Contains: RecName: Full=Huntingtin,myristoylated N-terminal fragment [Homo sapiens]
+  Score:       14640
+  E-value:     0.0
+  Identidad:   100.0%
+
+Hit 2  : P42859.2
+  Descripcion: RecName: Full=Huntingtin; AltName: Full=Huntington disease protein homolog; Short=HD protein homolog; Contains: RecName:Full=Huntingtin, myristoylated N-terminal fragment [Mus musculus]
+  Score:       13396
+  E-value:     0.0
+  Identidad:   91.1%
+
+Hit 3  : P51111.1
+  Descripcion: RecName: Full=Huntingtin; AltName: Full=Huntington disease protein homolog; Short=HD protein homolog; Contains: RecName:Full=Huntingtin, myristoylated N-terminal fragment [Rattus norvegicus]
+  Score:       13312
+  E-value:     0.0
+  Identidad:   90.8%
+
+Hit 4  : P51112.1
+  Descripcion: RecName: Full=Huntingtin; AltName: Full=Huntington disease protein homolog; Short=HD protein homolog [Takifugu rubripes]
+  Score:       10565
+  E-value:     0.0
+  Identidad:   72.4%
+
+Hit 5  : Q76P24.1
+  Descripcion: RecName: Full=HD protein homolog [Dictyostelium discoideum]
+  Score:       239
+  E-value:     5e-18
+  Identidad:   33.7%
+
+Total hits: 5
+
