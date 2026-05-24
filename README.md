@@ -129,57 +129,73 @@ Lo que hace es buscar en el archivo FASTA la secuencia que tiene `frame_+2_MARCO
 
 ### ¿Qué hacen los scripts?
 Los scripts `Ex2_local.pl` y `Ex2_remoto.pl` toman como input la secuencia de aminoácidos del marco de lectura correcto y realizan una búsqueda BLAST contra la base de datos SwissProt para encontrar secuencias similares en otros organismos.
+
 Se implementaron dos variantes:
 - **BLAST local:** corre directamente en la máquina usando la base de datos SwissProt descargada localmente. Es más rápido y no depende de la conexión.
-- **BLAST remoto:** envía la secuencia al servidor del NCBI y espera la respuesta. No requiere tener la base de datos instalada pero puede tardar varios minutos dependiendo del tamaño de la secuencia y el tráfico del servidor.
-
+- **BLAST remoto:** envía la secuencia al servidor del NCBI y espera la respuesta. No requiere tener la base de datos instalada pero puede tardar varios minutos.
+Además, siguiendo la sugerencia del profesor, también se corrió una búsqueda **FASTA online** contra SwissProt usando el servidor del EBI, para comparar los resultados con los del BLAST.
+ 
 ### Ejecución
-BLAST local:
-```bash
-perl scripts/Ex2_local.pl data/HTT_correcto.fas blast_db/swissprot
-```
-BLAST remoto:
+#### BLAST local
+ ```bash
+ perl scripts/Ex2_local.pl data/HTT_correcto.fas blast_db/swissprot
+ ```
+
+#### BLAST remoto
 ```bash
 perl scripts/Ex2_remoto.pl data/HTT_correcto.fas
 ```
+
+#### FASTA online
+Se corrió desde el [servidor del EBI](https://www.ebi.ac.uk/jdispatcher/sss/fasta) usando la secuencia de `data/HTT_correcto.fas` contra la base de datos UniProtKB/Swiss-Prot. Los resultados completos están disponibles en [este link](https://www.ebi.ac.uk/jdispatcher/sss/fasta/summary?jobId=fasta-I20260524-020009-0240-63843314-p2m).
 
 ### Outputs generados
 ```
 results/blast_local.out
 results/blast_remoto.out
+results/fasta.out
 ```
 
-### Resultados obtenidos
+### Resultados BLAST
+Los 5 hits encontrados son todos los hits significativos que existen en SwissProt para la huntingtina con el umbral de E-value utilizado (1e-5). No es una limitación del script: simplemente la huntingtina es una proteína muy específica y poco conservada fuera de ciertos organismos.
 
 | Hit | Organismo | Identidad | E-value | Score |
 |-----|-----------|-----------|---------|-------|
-| P42858.2 | Homo sapiens | 100.0% | 0.0 | 16594 |
-| P42859.2 | Mus musculus (ratón) | 91.2% | 0.0 | 14571 |
-| P51111.1 | Rattus norvegicus (rata) | 90.8% | 0.0 | 14494 |
-| P51112.1 | Takifugu rubripes (pez globo) | 71.5% | 0.0 | 11468 |
-| Q76P24.1 | Dictyostelium discoideum | 30.9% | 3e-18 | 241 |
+| P42858.2 | Homo sapiens (humano) | 100.0% | 0.0 | 16733 |
+| P42859.2 | Mus musculus (ratón) | 91.2% | 0.0 | 14691 |
+| P51111.1 | Rattus norvegicus (rata) | 90.8% | 0.0 | 14625 |
+| P51112.1 | Takifugu rubripes (pez globo) | 71.5% | 0.0 | 11540 |
+| Q76P24.1 | Dictyostelium discoideum | 31.1% | 8e-19 | 245 |
 
-Los resultados obtenidos por ambas variantes son consistentes: los mismos 5 hits en el mismo orden de relevancia. Las pequeñas diferencias en los scores e identidades (por ejemplo, 91.2% vs 91.1% para el ratón, o E-value de 3e-18 vs 5e-18 para Dictyostelium) son normales y esperables. El servidor remoto del NCBI puede utilizar una versión ligeramente distinta de la base de datos SwissProt o parámetros internos levemente diferentes a los de la instalación local. Lo importante es que las conclusiones biológicas son las mismas en ambos casos.
+Los resultados del BLAST local y remoto son consistentes entre sí: los mismos 5 hits en el mismo orden. Las pequeñas diferencias en scores y E-values entre ambas variantes son normales y se deben a que el servidor del NCBI puede usar una versión levemente distinta de la base de datos.
+ 
+### Resultados FASTA y comparación con BLAST
+Los primeros 4 hits del FASTA coinciden exactamente con los del BLAST: humano (100%), ratón (90.5%), rata (90.1%) y pez globo (69.8%), en el mismo orden. Esto confirma que esos resultados son sólidos y reproducibles con distintos algoritmos.
+
+La diferencia más interesante aparece en el quinto hit. BLAST encontró la huntingtina de *Dictyostelium discoideum* (Q76P24.1) con un E-value de 8e-19, que es muy significativo. FASTA también encuentra esa misma proteína, pero la ubica en el puesto 24 con un E-value de 0.91, que no se considera significativo. Esta diferencia se explica porque BLAST es más sensible que FASTA para detectar similitudes lejanas entre proteínas muy largas. En este caso, hay que confiar más en el resultado del BLAST: la similitud con la huntingtina de *Dictyostelium* es real y tiene significado biológico.
+
+&nbsp;
 
 ## Ejercicio 2.b: Interpretación del resultado del BLAST
 
-### Las secuencias encontradas
-
-El primer hit es la huntingtina humana (P42858.2) con 100% de identidad, lo cual confirma que la secuencia que estamos analizando es correcta y corresponde exactamente a la proteína HTT humana almacenada en SwissProt.
-
-Los hits 2 y 3 son la huntingtina de ratón y rata, con identidades del 91.2% y 90.8% respectivamente. Esto refleja la alta conservación evolutiva de esta proteína entre mamíferos: el gen HTT es esencial para el desarrollo neurológico y ha sido muy conservado a lo largo de la evolución.
-
-El hit 4, el pez globo (Takifugu rubripes), muestra una identidad del 71.5%. A pesar de ser un vertebrado mucho más distante evolutivamente que los mamíferos, la proteína sigue siendo reconociblemente similar, lo que indica que HTT cumple funciones fundamentales conservadas en todos los vertebrados.
-
-El hit 5, Dictyostelium discoideum (un moho mucilaginoso unicelular), es el más interesante y sorprendente: con solo 30.9% de identidad pero un E-value de 3e-18, la similitud sigue siendo estadísticamente significativa. Esto sugiere que algunas regiones funcionales de la huntingtina ya existían en organismos muy primitivos, antes de la aparición de los animales multicelulares.
-
-### Significado de los valores estadísticos
-
-**Score (puntuación):** Es un número que refleja qué tan bien se alinean dos secuencias. Se calcula sumando puntos por cada posición donde los aminoácidos coinciden o son similares, y restando puntos por los gaps (espacios que se introducen para alinear mejor). Cuanto más alto el score, mejor el alineamiento.
-
-**E-value (valor esperado):** Es el valor estadístico más importante del BLAST. Representa cuántos alineamientos con ese score o mejor se esperaría encontrar por pura casualidad en una base de datos del tamaño de SwissProt. Un E-value de 0.0 significa que la probabilidad de que ese alineamiento sea producto del azar es prácticamente nula: la similitud es real y tiene significado biológico. Un E-value de 3e-18 (equivalente a 0.000000000000000003) sigue siendo extremadamente significativo aunque la similitud sea menor. Como regla general, se considera significativo cualquier E-value menor a 0.001, y altamente significativo cualquier valor menor a 1e-10.
-
-**Identidad:** Es el porcentaje de posiciones en el alineamiento donde los dos aminoácidos son exactamente iguales. Un 100% indica que las secuencias son idénticas. Un 30.9% puede parecer bajo, pero en proteínas largas con E-values muy pequeños, ese nivel de identidad es suficiente para concluir que las proteínas comparten un ancestro común y probablemente funciones similares.
-
+### Significado de los valores
 La combinación de un score alto, un E-value cercano a cero y una identidad elevada es la señal más confiable de que dos proteínas están genuinamente relacionadas evolutivamente.
 
+1. **Score:** es un número que refleja qué tan bien se alinean dos secuencias. Se calcula sumando puntos por cada posición donde los aminoácidos coinciden o son similares, y restando puntos por los gaps (espacios que se introducen para alinear mejor). Cuanto más alto el score, mejor el alineamiento.
+ 
+2. **E-value:** es el valor estadístico más importante del BLAST. Representa cuántos alineamientos con ese score o mejor se esperaría encontrar por pura casualidad en una base de datos del tamaño de SwissProt. Cuanto más chico el E-value, más seguro es que la similitud encontrada no es producto del azar. Un E-value de 8e-19 sigue siendo extremadamente significativo aunque la similitud sea menor. Como regla general, se considera significativo cualquier E-value menor a 0.001.
+
+3. **Identidad:** es el porcentaje de posiciones en el alineamiento donde los dos aminoácidos son exactamente iguales. Un 100% indica que las secuencias son idénticas. Un 31.1% puede parecer bajo, pero en proteínas largas con E-values tan pequeños, ese nivel de identidad es suficiente para concluir que las proteínas comparten un ancestro común y probablemente funciones similares.
+
+### Las secuencias encontradas
+1. El primer hit es la huntingtina humana (P42858.2) con 100% de identidad, lo cual confirma que la secuencia que estamos analizando es correcta y corresponde exactamente a la proteína HTT humana almacenada en SwissProt.
+
+2. Los hits 2 y 3 son la huntingtina de ratón y rata, con identidades del 91.2% y 90.8% respectivamente. Esto refleja la alta conservación evolutiva de esta proteína entre mamíferos: el gen HTT es esencial para el desarrollo neurológico y ha sido muy conservado a lo largo de la evolución.
+
+3. El hit 4, el pez globo (Takifugu rubripes), muestra una identidad del 71.5%. A pesar de ser un vertebrado mucho más distante evolutivamente que los mamíferos, la proteína sigue siendo reconociblemente similar, lo que indica que HTT cumple funciones fundamentales conservadas en todos los vertebrados.
+
+4. El hit 5, Dictyostelium discoideum, es el más interesante. Es un organismo unicelular primitivo sin ningún parentesco con los animales. Con solo 31.1% de identidad pero un E-value de 8e-19, la similitud sigue siendo estadísticamente muy significativa. Esto sugiere que algunas regiones funcionales de la huntingtina ya existían en organismos muy primitivos, antes de la aparición de los animales multicelulares.
+
+&nbsp;
+
+## Ejercicio 3: Alineamiento Multiple
