@@ -1,53 +1,70 @@
-# TP Introducción a la Bioinformática — Parte 1
+# TP Introducción a la Bioinformática: Parte 1
 
-La enfermedad hereditaria elegida es la **Enfermedad de Huntington (HD)**, catalogada en OMIM bajo el código [#143100](https://www.omim.org/entry/143100?search=Huntington&highlight=huntington). El gen asociado es **HTT** (Huntingtin), ubicado en el cromosoma 4p16.3. La secuencia de referencia utilizada es el transcripto [NM_001388492.1](https://www.ncbi.nlm.nih.gov/nuccore/NM_001388492.1) (huntingtin isoforma 1, Homo sapiens), obtenida de la base de datos [NCBI Gene](https://www.ncbi.nlm.nih.gov/gene/3064) en formato GenBank.
+Elegimos para realizar el trabajo la **Enfermedad de Huntington (HD)**, catalogada en OMIM con el código [#143100](https://www.omim.org/entry/143100?search=Huntington&highlight=huntington). El gen asociado es **HTT** (Huntingtin), ubicado en el cromosoma 4p16.3. La secuencia de referencia utilizada es el transcripto [NM_001388492.1](https://www.ncbi.nlm.nih.gov/nuccore/NM_001388492.1) (huntingtina isoforma 1, Homo sapiens), obtenida de la base de datos [NCBI Gene](https://www.ncbi.nlm.nih.gov/gene/3064) en formato GenBank.
+
+&nbsp;
 
 ## La Enfermedad de Huntington y el gen HTT
 
 ### ¿Qué es la Enfermedad de Huntington?
+La Enfermedad de Huntington es una enfermedad hereditaria que afecta al cerebro y por el momento no tiene cura. Las personas que la tienen van perdiendo el control de sus movimientos (hacen movimientos involuntarios llamados corea), se les va deteriorando la memoria y el pensamiento, y también tienen cambios de conducta y estado de ánimo. Los síntomas suelen aparecer entre los 30 y 50 años, y una vez que aparecen la enfermedad avanza sin parar. En promedio, las personas viven entre 15 y 20 años más después del diagnóstico.
 
-La Enfermedad de Huntington es una enfermedad neurodegenerativa progresiva e incurable que afecta al sistema nervioso central. Sus síntomas principales son la pérdida del control motor (movimientos involuntarios llamados corea), deterioro cognitivo y alteraciones psiquiátricas. Los síntomas suelen aparecer entre los 30 y 50 años, aunque existe una forma juvenil que puede manifestarse antes de los 20. Una vez que los síntomas aparecen, la enfermedad avanza inevitablemente hasta requerir cuidado total, con un promedio de supervivencia de 15 a 20 años desde el diagnóstico.
+### Información por niveles
+Para entender esta enfermedad desde el punto de vista bioinformático, hay que mirarla en distintos niveles, desde el ADN hasta la función de la proteína que produce.
 
-### Información por niveles biológicos
+1. **SNP ([dbSNP - NCBI](https://www.ncbi.nlm.nih.gov/snp/?term=htt)):**
+Los SNPs son variaciones de una sola letra en el ADN entre distintas personas. En el gen HTT hay muchos SNPs documentados, pero la causa de la enfermedad no es un SNP: es una expansión de un triplete (ver sección de mutación más abajo).
+ 
+2. **Secuencia nucleotídica ([NCBI Nucleotide](https://www.ncbi.nlm.nih.gov/nuccore/NG_009378.1)):**
+El gen HTT está en el cromosoma 4, en la posición 4p16.3. Ocupa aproximadamente 180.000 pares de bases y tiene 67 exones. Es un gen muy grande.
+ 
+3. **Gen ([NCBI Gene - HTT](https://www.ncbi.nlm.nih.gov/gene/3064)):**
+HTT es el símbolo oficial del gen. También se lo conoce como HD o IT15. A partir de este gen se produce la proteína huntingtina y es esencial para el desarrollo normal del organismo.
+ 
+4. **ARNm ([NCBI Nucleotide - NM_001388492.1](https://www.ncbi.nlm.nih.gov/nuccore/NM_001388492.1)):**
+El transcripto que usamos en este TP es el NM_001388492.1 (huntingtina isoforma 1, humana), que tiene 13.472 bases. Este es el ARNm sin intrones, que la célula usa para fabricar la proteína.
+ 
+5. **Secuencia primaria de proteína ([NCBI Protein](https://www.ncbi.nlm.nih.gov/protein/NP_001375421.1)):**
+La proteína huntingtina (HTT) tiene 3.142 aminoácidos. Es una de las proteínas más grandes del organismo humano.
+ 
+6. **Estructura de la proteína ([RCSB PDB](https://www.rcsb.org/structure/8R2O)):**
+La huntingtina es una proteína muy grande y su estructura tridimensional completa todavía no está del todo resuelta. Se conocen algunas partes, pero entender cómo se dobla en su totalidad sigue investigándose.
+ 
+7. **Función de la proteína ([UniProt](https://www.uniprot.org/uniprot/P42858)):**
+La huntingtina está presente en casi todos los tejidos del cuerpo, pero principalmente en el cerebro. Su función exacta todavía no se entiende del todo, pero se sabe que es esencial para que el organismo se desarrolle con normalidad y para que las neuronas funcionen bien.
 
-**Nivel genómico (DNA)**
-El gen HTT se encuentra en el cromosoma 4, en la posición 4p16.3, y tiene una longitud de aproximadamente 170.000 pares de bases. Contiene 67 exones. La mutación causante de la enfermedad se encuentra en el exón 1 y consiste en una expansión del triplete CAG (citosina-adenina-guanina) más allá de un umbral crítico. En personas sanas, este triplete se repite entre 10 y 35 veces. A partir de 40 repeticiones, la enfermedad es prácticamente inevitable.
+### La mutación que causa la enfermedad
+La Enfermedad de Huntington tiene una sola mutación conocida como causa: **una expansión del triplete CAG en el exón 1 del gen HTT**.
 
-**Nivel transcripcional (mRNA)**
-El gen HTT se transcribe en un mRNA que, luego del procesamiento (splicing), produce el transcripto maduro que usamos en este TP: NM_001388492.1, de 13.472 pares de bases. La región CAG expandida en el mRNA produce un tramo de codones CAG en tándem que codifica una cadena de glutaminas (Q) anormalmente larga en la proteína resultante.
+> ¿Qué significa esto? En el ADN hay una región donde la secuencia CAG se repite varias veces seguidas. En personas sanas, este triplete se repite entre 9 y 35 veces. Cuando el número de repeticiones supera cierto umbral, la persona desarrolla la enfermedad. Cuantas más repeticiones hay, más temprano aparecen los síntomas.
+ 
+| Repeticiones CAG | Qué significa |
+|---|---|
+| 9 – 27 | Normal, no hay enfermedad |
+| 27 – 35 | Normal, pero puede expandirse al pasarlo a los hijos |
+| 36 – 39 | Zona gris: puede o no desarrollar HD dependiendo de otros factores |
+| 40 o más | La persona va a desarrollar HD inevitablemente |
+| 60 o más | Forma juvenil: los síntomas aparecen antes de los 20 años |
+ 
+Cada triplete CAG codifica para el aminoácido glutamina (Q). Entonces, una expansión de CAG produce una cadena de glutaminas anormalmente larga en la proteína. Esa cadena larga hace que la proteína se doble mal y forme grumos tóxicos dentro de las neuronas, especialmente en una zona del cerebro llamada estriado, que es clave para controlar el movimiento.
 
-**Nivel proteico**
-La proteína huntingtina (HTT) tiene 3.144 aminoácidos y un peso molecular de aproximadamente 348 kDa. Es una proteína muy grande que se expresa en prácticamente todos los tejidos del cuerpo, pero en mayor concentración en el cerebro, especialmente en las neuronas. Su función exacta no está del todo clara, pero se sabe que participa en el transporte intracelular, en la supervivencia neuronal y en la regulación de la expresión de otros genes. Interactúa con más de 100 proteínas distintas. La versión mutante (mHTT) contiene una cadena de glutaminas expandida en su extremo N-terminal que tiende a formar agregados tóxicos dentro de las células, especialmente en las neuronas espinosas medianas del estriado, una región cerebral clave para el control del movimiento.
+### Cómo se hereda
+La Enfermedad de Huntington se hereda de forma **autosómica dominante**. Esto significa:
+- El gen HTT está en un autosoma (cromosoma 4), no en los cromosomas sexuales X o Y.
+- Con una sola copia mutada alcanza para desarrollar la enfermedad. No hace falta que las dos copias estén afectadas.
+- Si uno de tus padres tiene HD, tenés un 50% de chance de heredar la mutación.
+- Afecta por igual a hombres y mujeres.
 
-**Nivel celular y tisular**
-La acumulación de la proteína mutante causa disfunción y muerte neuronal progresiva, principalmente en el estriado y la corteza cerebral. Las neuronas espinosas medianas del estriado son las más vulnerables. A medida que estas neuronas degeneran, el cerebro literalmente se encoge, lo que puede verse claramente en imágenes de resonancia magnética de pacientes con HD avanzada.
-
-### Mutaciones conocidas
-
-La única mutación causante de HD es la **expansión del triplete CAG en el exón 1 del gen HTT**. El número de repeticiones determina el estado clínico:
-
-| Repeticiones CAG | Estado |
-|-----------------|--------|
-| ≤ 26 | Normal |
-| 27 – 35 | Normal pero inestable (puede expandirse en la siguiente generación) |
-| 36 – 39 | Penetrancia reducida (puede o no desarrollar HD) |
-| ≥ 40 | Penetrancia completa (desarrollará HD inevitablemente) |
-| ≥ 60 | Forma juvenil (síntomas antes de los 20 años) |
-
-### Patrón de herencia
-
-La Enfermedad de Huntington se hereda de forma **autosómica dominante**. Esto significa que el gen HTT está en uno de los 22 pares de cromosomas no sexuales (autosomas), y que basta con heredar **una sola copia mutada** del gen para desarrollar la enfermedad. En otras palabras, si uno de tus padres tiene HD, tenés un 50% de probabilidad de heredar la mutación.
-
-A diferencia de enfermedades ligadas al cromosoma X (como el daltonismo, donde los hombres son mucho más afectados porque solo tienen un cromosoma X), la Enfermedad de Huntington afecta por igual a hombres y mujeres, ya que el gen HTT está en el cromosoma 4 y todos tenemos dos copias de ese cromosoma.
+Esto la diferencia de enfermedades ligadas al cromosoma X, como el daltonismo, donde los hombres son mucho más afectados porque solo tienen un cromosoma X. En el caso de HD, como el gen está en el cromosoma 4 y todos tenemos dos copias de ese cromosoma, el riesgo es el mismo para todos.
 
 ### Curiosidad: anticipación genética
+La enfermedad puede aparecer más temprano y de forma más grave en cada generación. Esto pasa porque el número de repeticiones CAG tiende a aumentar cuando el gen se transmite de padres a hijos, especialmente cuando lo pasa el padre. Por ejemplo, un padre con 42 repeticiones puede transmitirle a su hijo una versión con 50 o más, lo que acorta el tiempo hasta que aparecen los síntomas. Esto se llama **anticipación genética**.
 
-Un fenómeno particular de la HD es la **anticipación genética**: a medida que el gen mutado se transmite de generación en generación, el número de repeticiones CAG tiende a aumentar, lo que hace que la enfermedad aparezca más temprano y de forma más severa en las generaciones siguientes. Este fenómeno ocurre especialmente cuando la mutación se hereda del padre, ya que los repetidos CAG son más inestables durante la espermatogénesis (producción de espermatozoides) que durante la ovogénesis. Es decir, un padre con 42 repeticiones CAG puede transmitirle a su hijo una versión con 50 o más repeticiones, acortando el tiempo hasta la aparición de los síntomas.
+&nbsp;
 
----
+## Implementación del Trabajo
 
-## Estructura del repositorio
-
+### Estructura del repositorio
 ```
 tp-introduccion-bioinformatica/
 ├── README.md
@@ -65,85 +82,68 @@ tp-introduccion-bioinformatica/
     ├── blast_local.out      # Resultado del BLAST local
     └── blast_remoto.out     # Resultado del BLAST remoto
 ```
+> La carpeta `blast_db/` con la base de datos SwissProt no se incluye en el repositorio por su tamaño, pero tener en cuenta que es necesario para correrlo en local.
 
-> **Nota:** La carpeta `blast_db/` con la base de datos SwissProt no se incluye en el repositorio por su tamaño.
-
----
-
-## Modo de uso
-
-> **Importante:** todos los scripts deben ejecutarse siempre desde la raíz del repositorio, no desde dentro de la carpeta `scripts/`. Esto garantiza que las rutas de input y output funcionen correctamente.
-
+### Modo de uso de los scripts
+Todos los scripts deben ejecutarse siempre desde la raíz del repositorio, no desde dentro de la carpeta `scripts/`. Esto garantiza que las rutas de input y output funcionen correctamente. Ejemplo de uso correcto:
 ```bash
-# Correcto
 cd tp-introduccion-bioinformatica
 perl scripts/Ex1.pl data/sequence.gb
-
-# Incorrecto
-cd tp-introduccion-bioinformatica/scripts
-perl Ex1.pl ../data/sequence.gb
 ```
 
----
+&nbsp;
 
-## Ejercicio 1 — Procesamiento de secuencias
+## Ejercicio 1: Procesamiento de secuencias
 
 ### ¿Qué hace el script?
-
-El script `Ex1.pl` lee un archivo GenBank de un mRNA de referencia, genera los 6 marcos de lectura posibles (3 en la hebra directa y 3 en la hebra complementaria inversa), traduce cada uno a su secuencia de aminoácidos, e identifica cuál es el marco de lectura correcto usando la anotación CDS que viene incluida en el archivo GenBank. Los resultados se escriben en un archivo FASTA.
+El script `Ex1.pl` lee un archivo GenBank de un mRNA de referencia, genera los 6 marcos de lectura posibles, traduce cada uno a su secuencia de aminoácidos, e identifica cuál es el marco de lectura correcto usando la anotación CDS que viene incluida en el archivo GenBank. Los resultados se escriben en un archivo FASTA.
 
 ### ¿Qué es un marco de lectura?
-
 El mRNA es una cadena de nucleótidos que se lee de a 3 (codones) para producir aminoácidos. Dependiendo desde qué posición se empiece a leer, se obtienen proteínas completamente distintas. Hay 3 posiciones posibles en la hebra directa (+1, +2, +3) y 3 en la hebra complementaria inversa (-1, -2, -3), dando un total de 6 marcos de lectura posibles. Solo uno de ellos es el correcto y produce la proteína real.
 
-### Ejecución
+En los marcos incorrectos aparecen codones de stop prematuros (representados como `*`) que cortarían la traducción antes de tiempo. El marco correcto es el que produce una secuencia de aminoácidos continua y coherente, sin esos stops prematuros. Lo que buscamos dentro de ese marco se llama **ORF (Open Reading Frame)**: una región que empieza con un codón de inicio (ATG) y termina con un codón de stop. Encontrar el ORF correcto es equivalente a encontrar el marco de lectura que usa la naturaleza para fabricar esa proteína.
 
+### Ejecución
 ```bash
 perl scripts/Ex1.pl data/sequence.gb
 ```
 
 ### Output generado
-
 ```
 data/ORFs_HTT.fas
 ```
 
 ### Resultado
+El marco de lectura correcto identificado es el +2, lo que significa que la secuencia codificante del gen HTT comienza en la segunda posición del mRNA. Esto coincide con la anotación CDS del archivo GenBank de referencia.
 
-El marco de lectura correcto identificado es el **+2**, lo que significa que la secuencia codificante del gen HTT comienza en la segunda posición del mRNA. Esto coincide con la anotación CDS del archivo GenBank de referencia.
-
-Para trabajar en los ejercicios siguientes se extrajo solo la secuencia del marco correcto:
-
+Para los ejercicios siguientes se extrajo solo la secuencia del marco correcto con este comando:
 ```bash
 awk '/^>.*frame_\+2_MARCO_CORRECTO/{p=1} /^>/ && !/frame_\+2_MARCO_CORRECTO/{p=0} p' data/ORFs_HTT.fas > data/HTT_correcto.fas
 ```
 
----
+Lo que hace es buscar en el archivo FASTA la secuencia que tiene `frame_+2_MARCO_CORRECTO` en su nombre y guardarla en un archivo nuevo llamado `HTT_correcto.fas`.
 
-## Ejercicio 2.a — BLAST
+&nbsp;
+
+## Ejercicio 2.a: BLAST
 
 ### ¿Qué hacen los scripts?
-
 Los scripts `Ex2_local.pl` y `Ex2_remoto.pl` toman como input la secuencia de aminoácidos del marco de lectura correcto y realizan una búsqueda BLAST contra la base de datos SwissProt para encontrar secuencias similares en otros organismos.
-
 Se implementaron dos variantes:
 - **BLAST local:** corre directamente en la máquina usando la base de datos SwissProt descargada localmente. Es más rápido y no depende de la conexión.
 - **BLAST remoto:** envía la secuencia al servidor del NCBI y espera la respuesta. No requiere tener la base de datos instalada pero puede tardar varios minutos dependiendo del tamaño de la secuencia y el tráfico del servidor.
 
 ### Ejecución
-
 BLAST local:
 ```bash
 perl scripts/Ex2_local.pl data/HTT_correcto.fas blast_db/swissprot
 ```
-
 BLAST remoto:
 ```bash
 perl scripts/Ex2_remoto.pl data/HTT_correcto.fas
 ```
 
 ### Outputs generados
-
 ```
 results/blast_local.out
 results/blast_remoto.out
@@ -161,9 +161,7 @@ results/blast_remoto.out
 
 Los resultados obtenidos por ambas variantes son consistentes: los mismos 5 hits en el mismo orden de relevancia. Las pequeñas diferencias en los scores e identidades (por ejemplo, 91.2% vs 91.1% para el ratón, o E-value de 3e-18 vs 5e-18 para Dictyostelium) son normales y esperables. El servidor remoto del NCBI puede utilizar una versión ligeramente distinta de la base de datos SwissProt o parámetros internos levemente diferentes a los de la instalación local. Lo importante es que las conclusiones biológicas son las mismas en ambos casos.
 
----
-
-## Ejercicio 2.b — Interpretación del resultado del BLAST
+## Ejercicio 2.b: Interpretación del resultado del BLAST
 
 ### Las secuencias encontradas
 
