@@ -40,7 +40,7 @@ La Enfermedad de Huntington tiene una sola mutación conocida como causa: **una 
  
 | Repeticiones CAG | Qué significa |
 |---|---|
-| 9 – 27 | Normal, no hay enfermedad |
+| 9 – 26 | Normal, no hay enfermedad |
 | 27 – 35 | Normal, pero puede expandirse al pasarlo a los hijos |
 | 36 – 39 | Zona gris: puede o no desarrollar HD dependiendo de otros factores |
 | 40 o más | La persona va a desarrollar HD inevitablemente |
@@ -80,7 +80,8 @@ tp-introduccion-bioinformatica/
 │   └── Ex2_remoto.pl        # Ejercicio 2: BLAST remoto contra servidor NCBI
 └── results/
     ├── blast_local.out      # Resultado del BLAST local
-    └── blast_remoto.out     # Resultado del BLAST remoto
+    ├── blast_remoto.out     # Resultado del BLAST remoto
+    └── fasta.out            # Resultado del FASTA online (EBI)
 ```
 > La carpeta `blast_db/` con la base de datos SwissProt no se incluye en el repositorio por su tamaño, pero tener en cuenta que es necesario para correrlo en local.
 
