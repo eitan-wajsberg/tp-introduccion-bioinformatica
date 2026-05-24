@@ -15,10 +15,12 @@ my $archivo_output = "results/blast_remoto.out";
 
 # --- Configurar el BLAST remoto ---
 my $blast = Bio::Tools::Run::RemoteBlast->new(
-    -prog       => 'blastp',
-    -data       => 'swissprot',
-    -expect     => 1e-5,
-    -readmethod => 'SearchIO',
+    -prog         => 'blastp',
+    -data         => 'swissprot',
+    -expect       => 1e-5,
+    -readmethod   => 'SearchIO',
+    -hitdisplay   => 500,
+    -alignments   => 500,
 );
 
 # --- Leer las secuencias del archivo FASTA ---

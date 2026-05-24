@@ -30,7 +30,7 @@ print "Secuencias input: $archivo_input\n\n";
 
 # --- Ejecutar blastp desde la línea de comando ---
 my $cmd = "blastp -query $archivo_input -db $db_path -out $archivo_output " .
-          "-evalue 1e-5 -outfmt 0 -num_alignments 10 -num_descriptions 10";
+          "-evalue 1e-5 -outfmt 0";
 
 my $resultado = system($cmd);
 

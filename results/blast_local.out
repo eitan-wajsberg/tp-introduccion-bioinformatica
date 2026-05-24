@@ -23,15 +23,15 @@ Database: SwissProt
 
 Query= NM_001388492_frame_+2_MARCO_CORRECTO
 
-Length=4490
+Length=3190
                                                                       Score     E
 Sequences producing significant alignments:                          (Bits)  Value
 
-P42858.2 RecName: Full=Huntingtin; AltName: Full=Huntington disea...  6396    0.0  
-P42859.2 RecName: Full=Huntingtin; AltName: Full=Huntington disea...  5617    0.0  
-P51111.1 RecName: Full=Huntingtin; AltName: Full=Huntington disea...  5587    0.0  
-P51112.1 RecName: Full=Huntingtin; AltName: Full=Huntington disea...  4422    0.0  
-Q76P24.1 RecName: Full=HD protein homolog [Dictyostelium discoideum]  97.4    3e-18
+P42858.2 RecName: Full=Huntingtin; AltName: Full=Huntington disea...  6450    0.0  
+P42859.2 RecName: Full=Huntingtin; AltName: Full=Huntington disea...  5663    0.0  
+P51111.1 RecName: Full=Huntingtin; AltName: Full=Huntington disea...  5638    0.0  
+P51112.1 RecName: Full=Huntingtin; AltName: Full=Huntington disea...  4449    0.0  
+Q76P24.1 RecName: Full=HD protein homolog [Dictyostelium discoideum]  99.0    8e-19
 
 
 >P42858.2 RecName: Full=Huntingtin; AltName: Full=Huntington disease 
@@ -39,7 +39,7 @@ protein; Short=HD protein; Contains: RecName: Full=Huntingtin,
 myristoylated N-terminal fragment [Homo sapiens]
 Length=3142
 
- Score = 6396 bits (16594),  Expect = 0.0, Method: Compositional matrix adjust.
+ Score = 6450 bits (16733),  Expect = 0.0, Method: Compositional matrix adjust.
  Identities = 3142/3142 (100%), Positives = 3142/3142 (100%), Gaps = 0/3142 (0%)
 
 Query  49    MATLEKLMKAFESLKSFQQQQQQQQQQQQQQQQQQQQQPPPPPPPPPPPQLPQPPPQAQP  108
@@ -261,7 +261,7 @@ RecName: Full=Huntingtin, myristoylated N-terminal fragment
 [Mus musculus]
 Length=3119
 
- Score = 5617 bits (14571),  Expect = 0.0, Method: Compositional matrix adjust.
+ Score = 5663 bits (14691),  Expect = 0.0, Method: Compositional matrix adjust.
  Identities = 2792/3063 (91%), Positives = 2912/3063 (95%), Gaps = 4/3063 (0%)
 
 Query  129   AEEPLHRPKKELSATKKDRVNHCLTICENIVAQSVRNSPEFQKLLGIAMELFLLCSDDAE  188
@@ -479,7 +479,7 @@ RecName: Full=Huntingtin, myristoylated N-terminal fragment
 [Rattus norvegicus]
 Length=3110
 
- Score = 5587 bits (14494),  Expect = 0.0, Method: Compositional matrix adjust.
+ Score = 5638 bits (14625),  Expect = 0.0, Method: Compositional matrix adjust.
  Identities = 2781/3063 (91%), Positives = 2902/3063 (95%), Gaps = 5/3063 (0%)
 
 Query  129   AEEPLHRPKKELSATKKDRVNHCLTICENIVAQSVRNSPEFQKLLGIAMELFLLCSDDAE  188
@@ -695,16 +695,16 @@ Sbjct  3108  TAC  3110
 protein homolog; Short=HD protein homolog [Takifugu rubripes]
 Length=3148
 
- Score = 4422 bits (11468),  Expect = 0.0, Method: Compositional matrix adjust.
- Identities = 2245/3221 (70%), Positives = 2613/3221 (81%), Gaps = 160/3221 (5%)
+ Score = 4449 bits (11540),  Expect = 0.0, Method: Compositional matrix adjust.
+ Identities = 2245/3221 (70%), Positives = 2614/3221 (81%), Gaps = 160/3221 (5%)
 
 Query  49    MATLEKLMKAFESLKSFQQQQQQQQQQQQQQQQQQQQQPPPPPPPPPPPQLPQPPPQAQP  108
-             MAT+EKLMKAFESLKSFQ                 QQQ                      
-Sbjct  1     MATMEKLMKAFESLKSFQ-----------------QQQ----------------------  21
+             MAT+EKLMKAFESLKSFQ                QQQ PP                    
+Sbjct  1     MATMEKLMKAFESLKSFQ----------------QQQGPP--------------------  24
 
 Query  109   LLPQPQPPPPPPPPPPGPAVAEEPLHRPKKELSATKKDRVNHCLTICENIVAQSVRNSPE  168
-                             GP  AEE + R KKE + TKKDRV+HCLTICENIVAQS+R SPE
-Sbjct  22    ----------------GPPTAEEIVQRQKKEQATTKKDRVSHCLTICENIVAQSLRTSPE  65
+                                 AEE + R KKE + TKKDRV+HCLTICENIVAQS+R SPE
+Sbjct  25    -------------------TAEEIVQRQKKEQATTKKDRVSHCLTICENIVAQSLRTSPE  65
 
 Query  169   FQKLLGIAMELFLLCSDDAESDVRMVADECLNKVIKALMDSNLPRLQLELYKEIKKNGAP  228
              FQKLLGIAME+FLLCSDD+ESDVRMVADECLN++IKALMDSNLPRLQLELYKEIKKNGA 
@@ -734,11 +734,11 @@ Query  529   SSGVSTPGSAGHDIITEQPRS-QHTLQ-ADSVDLASCD------LTSSATD-----GDEE  575
                G     +A  DIIT+QPRS QHT+Q  DSVDL++          +SA+D      DEE
 Sbjct  414   --GADNSSAAQVDIITQQPRSSQHTIQPGDSVDLSASSEQGGRGGGASASDTPESPNDEE  471
 
-Query  576   DILSHSSS---------QVSAVPSDPAMDLN--DGTQA---SSPISDSSQTTTEGPDSAV  621
-             D+LS SSS            A P +PA +     G+ A   S P SDSSQTTTEGPDSAV
+Query  576   DILSHSSSQVS---------AVPSDPAMDLN--DGTQA---SSPISDSSQTTTEGPDSAV  621
+             D+LS SSS  +         A P +PA +     G+ A   S P SDSSQTTTEGPDSAV
 Sbjct  472   DMLSRSSSCGANITPETVEDATPENPAQEGRPVGGSGAYDHSLPPSDSSQTTTEGPDSAV  531
 
-Query  622   TPSDSSEIVLDGTDNQYLGLQIGQPQDEDEEATGILPDEAS-EAFRNSSMALQQAHLLKN  680
+Query  622   TPSDSSEIVLDGTDNQYLGLQIGQPQDEDEEATGILPDE-ASEAFRNSSMALQQAHLLKN  680
              TPSD +E+VLDG+++QY G+QIG  QDE++E T     E   + F  S++AL + HL ++
 Sbjct  532   TPSDVAELVLDGSESQYSGMQIGTLQDEEDEGTATSSQEDPPDPFLRSALALSKPHLFES  591
 
@@ -766,11 +766,11 @@ Query  981   RLVPKLFYKCDQGQADPVVAVARDQSSVYLKLLMHETQPPSHFSVSTITRIYRGYNLLPS  1040
              RLV +LF+ CDQGQADPVVA+ARDQSSVYL+LLMHETQPPS  +VSTITR YRG+NL  +
 Sbjct  891   RLVSRLFFDCDQGQADPVVAIARDQSSVYLQLLMHETQPPSQLTVSTITRTYRGFNLSNN  950
 
-Query  1041  ITDVTMENNLSRVIAAVSHELITSTTRALTFGCCEALCLLSTAFPVCIWSLGWHCGV---  1097
+Query  1041  ITDVTMENNLSRVIAAVSHELITSTTRALTFGCCEALCLLSTAFPVCIWSLGWHCG----  1096
              + DVT+ENNLSRV+ AVSH   +ST+RALTFGCCEALCLL+  FP+C W+ GWHCG    
 Sbjct  951   VADVTVENNLSRVVTAVSHAFTSSTSRALTFGCCEALCLLAVHFPICTWTTGWHCGHISS  1010
 
-Query  1098  -------------PPLSAS---------------DESRKSCTVGMATMILTLLSSAWFPL  1129
+Query  1097  ------------VPPLSAS---------------DESRKSCTVGMATMILTLLSSAWFPL  1129
                             LS S               D  R++ TVG A M+L+LLSSAWFPL
 Sbjct  1011  QSSFSSRVGRSRGRTLSVSQSGSTPASSTTSSAVDPERRTLTVGTANMVLSLLSSAWFPL  1070
 
@@ -918,32 +918,32 @@ Sbjct  3104  FYRHQIDEELDRRAFQSVFETVASPGSPYFQLLACLQSIHQ  3144
 >Q76P24.1 RecName: Full=HD protein homolog [Dictyostelium discoideum]
 Length=3095
 
- Score = 97.4 bits (241),  Expect = 3e-18, Method: Compositional matrix adjust.
- Identities = 80/278 (29%), Positives = 138/278 (50%), Gaps = 20/278 (7%)
+ Score = 99.0 bits (245),  Expect = 8e-19, Method: Compositional matrix adjust.
+ Identities = 79/274 (29%), Positives = 134/274 (49%), Gaps = 18/274 (7%)
 
-Query  2710  HRAGVDIHSCSQFLLELYSRWILPSSSARRTPAILISEVVRSLLVVSDLFTERNQFELMY  2769
-             +  GV+     Q LLE +  +++        P +L  ++++S +++SDLF  R Q   M+
-Sbjct  2557  YFIGVNFTPIIQKLLESFESFLVNP----MCPPMLKKDILKSTVLLSDLFN-REQVIWMF  2611
+Query  2713  GVDIHSCSQFLLELYSRWILPSSSARRTPAILISEVVRSLLVVSDLFTERNQFELMYVTL  2772
+             GV+     Q LLE +  +++        P +L  ++++S +++SDLF  R Q   M+ T 
+Sbjct  2560  GVNFTPIIQKLLESFESFLV----NPMCPPMLKKDILKSTVLLSDLF-NREQVIWMFKTF  2614
 
-Query  2770  VTLTELRRVHPSEDEILAQYLVPATCKAAAVL------GMDKAVAEPVSRLLESTLRSSH  2823
-              T T +      +D +L Q+L+   CK  A+L      G   A +  +  +L+S L   +
-Sbjct  2612  KTFTTIYAQDEIDDFLLKQHLILGICKGIAILQTPPNVGDSNAHSVGIFEMLKSALDHQN  2671
+Query  2773  TELRRVHPSEDEILAQYLVPATCKAAAVL------GMDKAVAEPVSRLLESTLRSSHLPS  2826
+             T +      +D +L Q+L+   CK  A+L      G   A +  +  +L+S L   ++  
+Sbjct  2615  TTIYAQDEIDDFLLKQHLILGICKGIAILQTPPNVGDSNAHSVGIFEMLKSALDHQNISL  2674
 
-Query  2824  LPSRVGALHGVLYVLECDLLDDTAKQLIPVISDYLLSNLKGIAHC-VNIHSQQHVLVMCA  2882
-             +  +V AL G+LY+LE  +       L+  +  ++ + L  +    V++      L + A
-Sbjct  2672  ISLQVSALDGILYLLEGKVNKYIQGSLLQFLFRWIPTRLSSVPFPPVSL-----TLRVLA  2726
+Query  2827  RVGALHGVLYVLECDLLDDTAKQLIPVISDYLLSNLKGIAHCVNIHSQQHVLVMCATAFY  2886
+             +V AL G+LY+LE  +       L+  +  ++ + L  +            L + AT F 
+Sbjct  2675  QVSALDGILYLLEGKVNKYIQGSLLQFLFRWIPTRLSSVP----FPPVSLTLRVLATMFL  2730
 
-Query  2883  TAFYLIENYPLDVGPE-FSASIIQMCGVMLSGSEESTPSIIYHCALRGLERLLLSEQLSR  2941
-             T F +IE Y  +     F+   +  C  +  G ++STP  I +   RGL+RLL+S  LS 
-Sbjct  2727  TMFLMIEQYSREAEETLFTKRAVTTCIQL--GQQQSTPVPIVYGVFRGLDRLLVSFSLSH  2784
+Query  2887  LIENYPLDVGPE-FSASIIQMCGVMLSGSEESTPSIIYHCALRGLERLLLSEQLSRLDAE  2945
+             +IE Y  +     F+   +  C  +  G ++STP  I +   RGL+RLL+S  LS    E
+Sbjct  2731  MIEQYSREAEETLFTKRAVTTCIQL--GQQQSTPVPIVYGVFRGLDRLLVSFSLSHSQRE  2788
 
-Query  2942  LDAESLVKLSVDRVNVHSPHRAMAALGLMLTCMYTGKE  2979
-                E +   S+  +   +P R++ ALGLM+TC+YTG E
-Sbjct  2785  SQRELISHFSLKSLPSENPIRSLLALGLMVTCIYTGDE  2822
+Query  2946  SLVKLSVDRVNVHSPHRAMAALGLMLTCMYTGKE  2979
+              +   S+  +   +P R++ ALGLM+TC+YTG E
+Sbjct  2789  LISHFSLKSLPSENPIRSLLALGLMVTCIYTGDE  2822
 
 
- Score = 96.3 bits (238),  Expect = 7e-18, Method: Compositional matrix adjust.
- Identities = 66/235 (28%), Positives = 111/235 (47%), Gaps = 47/235 (20%)
+ Score = 96.3 bits (238),  Expect = 5e-18, Method: Compositional matrix adjust.
+ Identities = 68/235 (29%), Positives = 112/235 (48%), Gaps = 47/235 (20%)
 
 Query  793  PEEQYVSDILNYIDHGDPQVRGATAILCGTLICSILSRSRFHVGDWMGTIRTLTGNTFSL  852
             P+E++    L Y++  DP +RG TA++ G LI   L            T   L  +  S+
@@ -953,16 +953,16 @@ Query  853  ADCIPLLRKTLKDESSVTCKLACTAVRNCVMSLCSSSYSELGLQLIIDVLTLRNSSYWLV  912
                +  L + L D SS+T KLACT +  C+  L  S +S+  L  +  +L + +S+YWLV
 Sbjct  633  PTLLIFLLRALMDSSSITAKLACTGISECLPILSQSKFSDWALVTLRHLLCVSSSTYWLV  692
 
-Query  913  RTELLETLAEIDFRLVSFLEAKAENLHRGAHHYTGLLK----------------------  950
-            + E+LETL+ ID+ ++ +LE   +N+ + ++    ++                       
+Query  913  RTELLETLAEIDFRLVSFLEAKAENLHRGAH-----------------------------  943
+            + E+LETL+ ID+ ++ +LE   +N+ + ++                             
 Sbjct  693  KLEILETLSMIDYIVIEYLE---QNIQQKSNVMNVVINGPNLSISTSSIKINENNNNSNN  749
 
-Query  951  -----------------LQERVLNNVVIHLLGDEDPRVRHVAAASLIRLVPKLFY  988
-                             +Q +VL + +I  L D D RVR+ A  SL+R++PKL +
+Query  944  -------HYTG---LLKLQERVLNNVVIHLLGDEDPRVRHVAAASLIRLVPKLFY  988
+                     TG    + +Q +VL + +I  L D D RVR+ A  SL+R++PKL +
 Sbjct  750  SNNNKNNSETGGAVAIPIQSKVL-DFLIEQLSDNDFRVRNSAGKSLVRVIPKLVF  803
 
 
- Score = 75.9 bits (185),  Expect = 1e-11, Method: Compositional matrix adjust.
+ Score = 75.1 bits (183),  Expect = 1e-11, Method: Compositional matrix adjust.
  Identities = 53/215 (25%), Positives = 106/215 (49%), Gaps = 15/215 (7%)
 
 Query  2977  GKEKVSPGRTSDPNPAAPDSE-SVIVAMERVSVLFDRIR--KGFPCEARVVARILPQFLD  3033
@@ -982,7 +982,7 @@ Query  3148  RHQIEEELDRRAFQSVLEVVAAPGSPYHRLLTCLR  3182
 Sbjct  3060  FNKELSKENKQLFKDSFSKLKI--EPYISLLKVIN  3092
 
 
- Score = 67.4 bits (163),  Expect = 3e-09, Method: Compositional matrix adjust.
+ Score = 67.8 bits (164),  Expect = 2e-09, Method: Compositional matrix adjust.
  Identities = 46/164 (28%), Positives = 83/164 (51%), Gaps = 17/164 (10%)
 
 Query  229  RSLRAALWRFAELAHLVRPQKCRPYLVNLLPCLTRT-SKRPEESVQETLAAAVPKIMASF  287
@@ -998,27 +998,27 @@ Query  341  ------NVLLGLLVPVEDEHSTL---LILGVLLTLRYLVPLLQQ  375
 Sbjct  335  NSPPISSITSASCIPASSNTNTLQNSKILGVLFSYLQLIKLAEE  378
 
 
- Score = 62.4 bits (150),  Expect = 1e-07, Method: Compositional matrix adjust.
- Identities = 34/86 (40%), Positives = 51/86 (59%), Gaps = 2/86 (2%)
+ Score = 62.8 bits (151),  Expect = 7e-08, Method: Compositional matrix adjust.
+ Identities = 34/85 (40%), Positives = 51/85 (60%), Gaps = 2/85 (2%)
 
 Query  144  KKDRVNHCLTICENIVAQSVRNSPEFQKLLGIAMELFLLCSDDAESDVRMVADECLNKVI  203
             +K+++  C TI E I A S+RN+ +F + L IA+ L L    D + +V  VA+E LN+ I
 Sbjct  23   RKEKIEACRTISEQICAPSLRNTADFPRFLSIAISLLLRAHGDKDLNVYSVAEESLNRTI  82
 
-Query  204  KALMDSNLPRLQLELYKEIKKNGAPR  229
-            K L+ S   R+  EL+K +K  G P 
-Sbjct  83   KILVYSYHERILFELFKVLK--GKPH  106
+Query  204  KALMDSNLPRLQLELYKEIKKNGAP  228
+            K L+ S   R+  EL+K +K  G P
+Sbjct  83   KILVYSYHERILFELFKVLK--GKP  105
 
 
 
 Lambda      K        H        a         alpha
-   0.325    0.137    0.428    0.792     4.96 
+   0.319    0.133    0.388    0.792     4.96 
 
 Gapped
 Lambda      K        H        a         alpha    sigma
    0.267   0.0410    0.140     1.90     42.6     43.6 
 
-Effective search space used: 506488353744
+Effective search space used: 359930498490
 
 
   Database: SwissProt

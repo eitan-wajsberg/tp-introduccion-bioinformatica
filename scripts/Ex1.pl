@@ -77,6 +77,7 @@ while (my $seq = $seqio_in->next_seq()) {
             -alphabet => 'dna'
         );
         my $proteina = $secuencia_obj->translate()->seq();
+        $proteina =~ s/\*.*//;
 
         # Determinar si este es el marco correcto según la anotación CDS
         my $es_correcto = "";
