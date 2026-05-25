@@ -199,4 +199,45 @@ La combinación de un score alto, un E-value cercano a cero y una identidad elev
 
 &nbsp;
 
-## Ejercicio 3: Alineamiento Multiple
+## Ejercicio 3: Alineamiento Múltiple (MSA)
+
+### ¿Qué es un alineamiento múltiple?
+Un alineamiento múltiple (MSA) permite comparar varias secuencias de proteínas al mismo tiempo, alineando las posiciones equivalentes entre todos los organismos. Esto permite identificar qué regiones de la proteína se mantuvieron iguales a lo largo de millones de años de evolución (regiones conservadas) y cuáles cambiaron. Las regiones muy conservadas suelen ser las más importantes funcionalmente: si la proteína las mantuvo en organismos tan distintos, es porque son esenciales para que funcione.
+
+### Secuencias utilizadas
+Se usaron las 5 secuencias obtenidas en el BLAST, que representan distintos grados de distancia evolutiva respecto a la huntingtina humana.
+
+### Herramienta utilizada
+Se usó **Clustal Omega** del servidor del EBI, que es una de las herramientas de MSA más usadas y confiables. Los resultados completos están disponibles en [este link](https://www.ebi.ac.uk/jdispatcher/msa/clustalo/summary?jobId=clustalo-I20260525-193425-0152-55451491-p1m). El resultado también se guardó localmente en `results/msa.out`.
+
+### Ejecución
+El alineamiento se realizó online desde:
+https://www.ebi.ac.uk/jdispatcher/msa/clustalo
+
+### Output generado
+```
+results/msa.out
+```
+
+### Interpretación del resultado
+El alineamiento muestra un patrón claro que se divide en dos grupos:
+
+1. **Alta conservación entre vertebrados:** humano, ratón, rata y pez globo presentan bloques extensos de posiciones idénticas o muy similares, indicados por `*` y `:` en el alineamiento. Esto confirma que la huntingtina es una proteína muy conservada entre vertebrados, lo que sugiere que cumple funciones esenciales que no pueden cambiar sin afectar la supervivencia del organismo.
+
+2. **Conservación parcial con *Dictyostelium*:** la huntingtina de *Dictyostelium discoideum* es mucho más divergente, con muchos gaps y regiones sin correspondencia. Sin embargo, en varios bloques dispersos a lo largo de toda la proteína aparecen posiciones conservadas entre *Dictyostelium* y los vertebrados. Esto indica que ciertas regiones funcionales de la huntingtina existían ya en organismos unicelulares primitivos, antes de la aparición de los animales.
+
+En conjunto, el MSA refuerza las conclusiones del BLAST: la huntingtina es una proteína antigua y conservada, especialmente en vertebrados, con un núcleo funcional que se remonta a organismos muy primitivos.
+
+### Ejemplo representativo del alineamiento
+El siguiente bloque muestra una de las regiones con mayor conservación entre los 5 organismos:
+
+```
+sp|Q76P24.1|HD_DICDI      FPRFLSIAISLLLRAHGDKDLNVYSVAEESLNRTIKILVYSYHERILFELFKVLKGKPHQ	107
+sp|P51112.1|HD_TAKRU      FQKLLGIAMEMFLLCSDDSESDVRMVADECLNRIIKALMDSNLPRLQLELYKEIKKNG--	123
+sp|P42858.2|HD_HUMAN      FQKLLGIAMELFLLCSDDAESDVRMVADECLNKVIKALMDSNLPRLQLELYKEIKKNG--	178
+sp|P51111.1|HD_RAT        FQKLLGIAMELFLLCSDDA-SRRRMVADECLNKVIKALMDSNLPRLQLELYKEIKKNG--	148
+sp|P42859.2|HD_MOUSE      FQKLLGIAMELFLLCSNDAESDVRMVADECLNKVIKALMDSNLPRLQLELYKEIKKNG--	157
+                          * ::*.**:.::* . .*       **:*.**: ** *: *   *: :**:* :* :   
+```
+
+Los símbolos de la última línea indican: `*` posición idéntica en los 5 organismos, `:` posición muy similar, `.` posición con cierta similitud. Se puede ver claramente que humano, ratón, rata y pez globo son casi idénticos en esta región, mientras que *Dictyostelium* diverge bastante pero comparte algunas posiciones clave, lo que refuerza la idea de un núcleo funcional ancestral.
