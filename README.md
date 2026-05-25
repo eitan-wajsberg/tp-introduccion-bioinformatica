@@ -70,18 +70,26 @@ tp-introduccion-bioinformatica/
 ├── README.md
 ├── .gitignore
 ├── data/
-│   ├── sequence.gb          # Archivo GenBank del mRNA de referencia del gen HTT (NM_001388492.1)
-│   ├── ORFs_HTT.fas         # Los 6 marcos de lectura traducidos a aminoácidos
-│   └── HTT_correcto.fas     # Solo el marco de lectura correcto (+2)
+│   ├── sequence.gb            # Archivo GenBank del mRNA de referencia del gen HTT (NM_001388492.1)
+│   ├── ORFs_HTT.fas           # Los 6 marcos de lectura traducidos a aminoácidos
+│   ├── HTT_correcto.fas       # Solo el marco de lectura correcto (+2)
+│   ├── humano.fasta           # Secuencia proteína huntingtina Homo sapiens (P42858)
+│   ├── raton.fasta            # Secuencia proteína huntingtina Mus musculus (P42859)
+│   ├── rata.fasta             # Secuencia proteína huntingtina Rattus norvegicus (P51111)
+│   ├── pez_globo.fasta        # Secuencia proteína huntingtina Takifugu rubripes (P51112)
+│   ├── dictyostelium.fasta    # Secuencia proteína huntingtina Dictyostelium discoideum (Q76P24)
+│   └── secuencia_msa.fasta    # Las 5 secuencias juntas para el alineamiento múltiple
 ├── scripts/
-│   ├── verificar_entorno.sh # Script para verificar que el entorno está correctamente instalado
-│   ├── Ex1.pl               # Ejercicio 1: procesamiento de secuencias y traducción
-│   ├── Ex2_local.pl         # Ejercicio 2: BLAST local contra SwissProt
-│   └── Ex2_remoto.pl        # Ejercicio 2: BLAST remoto contra servidor NCBI
+│   ├── verificar_entorno.sh   # Script para verificar que el entorno está correctamente instalado
+│   ├── Ex1.pl                 # Ejercicio 1: procesamiento de secuencias y traducción
+│   ├── Ex2_local.pl           # Ejercicio 2: BLAST local contra SwissProt
+│   └── Ex2_remoto.pl          # Ejercicio 2: BLAST remoto contra servidor NCBI
 └── results/
-    ├── blast_local.out      # Resultado del BLAST local
-    ├── blast_remoto.out     # Resultado del BLAST remoto
-    └── fasta.out            # Resultado del FASTA online (EBI)
+    ├── blast_local.out        # Resultado del BLAST local
+    ├── blast_remoto.out       # Resultado del BLAST remoto
+    ├── fasta.out              # Resultado del FASTA online (EBI)
+    ├── msa.out                # Resultado del alineamiento múltiple (Clustal Omega)
+    └── grafico_msa.png        # Visualización gráfica del alineamiento múltiple
 ```
 > La carpeta `blast_db/` con la base de datos SwissProt no se incluye en el repositorio por su tamaño, pero tener en cuenta que es necesario para correrlo en local.
 
@@ -200,19 +208,30 @@ La combinación de un score alto, un E-value cercano a cero y una identidad elev
 &nbsp;
 
 ## Ejercicio 3: Alineamiento Múltiple (MSA)
-
+ 
 ### ¿Qué es un alineamiento múltiple?
 Un alineamiento múltiple (MSA) permite comparar varias secuencias de proteínas al mismo tiempo, alineando las posiciones equivalentes entre todos los organismos. Esto permite identificar qué regiones de la proteína se mantuvieron iguales a lo largo de millones de años de evolución (regiones conservadas) y cuáles cambiaron. Las regiones muy conservadas suelen ser las más importantes funcionalmente: si la proteína las mantuvo en organismos tan distintos, es porque son esenciales para que funcione.
-
+ 
 ### Secuencias utilizadas
-Se usaron las 5 secuencias obtenidas en el BLAST, que representan distintos grados de distancia evolutiva respecto a la huntingtina humana.
+Las secuencias fueron descargadas en formato FASTA desde NCBI Protein:
+ 
+- [P42858](https://www.ncbi.nlm.nih.gov/protein/P42858) — *Homo sapiens* (humano)
+- [P42859](https://www.ncbi.nlm.nih.gov/protein/P42859) — *Mus musculus* (ratón)
+- [P51111](https://www.ncbi.nlm.nih.gov/protein/P51111) — *Rattus norvegicus* (rata)
+- [P51112](https://www.ncbi.nlm.nih.gov/protein/P51112) — *Takifugu rubripes* (pez globo)
+- [Q76P24](https://www.ncbi.nlm.nih.gov/protein/Q76P24) — *Dictyostelium discoideum*
+
+Una vez descargadas, se juntaron en un solo archivo con el siguiente comando:
+```bash
+cat humano.fasta raton.fasta rata.fasta pez_globo.fasta dictyostelium.fasta > data/secuencia_msa.fasta
+```
 
 ### Herramienta utilizada
-Se usó **Clustal Omega** del servidor del EBI, que es una de las herramientas de MSA más usadas y confiables. Los resultados completos están disponibles en [este link](https://www.ebi.ac.uk/jdispatcher/msa/clustalo/summary?jobId=clustalo-I20260525-193425-0152-55451491-p1m). El resultado también se guardó localmente en `results/msa.out`.
+Se usó **Clustal Omega** del servidor del EBI. Los resultados completos están disponibles en [este link](https://www.ebi.ac.uk/jdispatcher/msa/clustalo/summary?jobId=clustalo-I20260525-193425-0152-55451491-p1m). El resultado también se guardó localmente en `results/msa.out`.
 
 ### Ejecución
 El alineamiento se realizó online desde:
-https://www.ebi.ac.uk/jdispatcher/msa/clustalo
+https://www.ebi.ac.uk/jdispatcher/msa/clustalo, donde ingresamos el archivo `data/secuencia_msa.fasta`.
 
 ### Output generado
 ```
@@ -241,3 +260,8 @@ sp|P42859.2|HD_MOUSE      FQKLLGIAMELFLLCSNDAESDVRMVADECLNKVIKALMDSNLPRLQLELYKEI
 ```
 
 Los símbolos de la última línea indican: `*` posición idéntica en los 5 organismos, `:` posición muy similar, `.` posición con cierta similitud. Se puede ver claramente que humano, ratón, rata y pez globo son casi idénticos en esta región, mientras que *Dictyostelium* diverge bastante pero comparte algunas posiciones clave, lo que refuerza la idea de un núcleo funcional ancestral.
+
+### Visualización del alineamiento múltiple
+La siguiente captura muestra la vista completa del alineamiento en el visualizador del EBI. Cada color representa un aminoácido distinto. Se puede ver claramente cómo las 4 secuencias de vertebrados (pez globo, humano, rata y ratón) tienen patrones de color muy similares a lo largo de toda la proteína, mientras que Dictyostelium (primera fila) muestra muchas más diferencias y gaps, especialmente en la región central.
+
+![Visualización del alineamiento múltiple](results/grafico_msa.png)
