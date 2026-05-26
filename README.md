@@ -2,6 +2,12 @@
 
 Elegimos para realizar el trabajo la **Enfermedad de Huntington (HD)**, catalogada en OMIM con el código [#143100](https://www.omim.org/entry/143100?search=Huntington&highlight=huntington). El gen asociado es **HTT** (Huntingtin), ubicado en el cromosoma 4p16.3. La secuencia de referencia utilizada es el transcripto [NM_001388492.1](https://www.ncbi.nlm.nih.gov/nuccore/NM_001388492.1) (huntingtina isoforma 1, Homo sapiens), obtenida de la base de datos [NCBI Gene](https://www.ncbi.nlm.nih.gov/gene/3064) en formato GenBank.
 
+**Trabajo realizado por:**
+- Damian Ariel Masi
+- Marcos Rivitti
+- Ruben Omar Scarazzato
+- Eitan Wajsberg
+
 &nbsp;
 
 ## La Enfermedad de Huntington y el gen HTT
