@@ -1,4 +1,4 @@
-# TP Introducción a la Bioinformática: Parte 1
+# TP Introducción a la Bioinformática
 
 Elegimos para realizar el trabajo la **Enfermedad de Huntington (HD)**, catalogada en OMIM con el código [#143100](https://www.omim.org/entry/143100?search=Huntington&highlight=huntington). El gen asociado es **HTT** (Huntingtin), ubicado en el cromosoma 4p16.3. La secuencia de referencia utilizada es el transcripto [NM_001388492.1](https://www.ncbi.nlm.nih.gov/nuccore/NM_001388492.1) (huntingtina isoforma 1, Homo sapiens), obtenida de la base de datos [NCBI Gene](https://www.ncbi.nlm.nih.gov/gene/3064) en formato GenBank.
 
@@ -271,3 +271,36 @@ Los símbolos de la última línea indican: `*` posición idéntica en los 5 org
 La siguiente captura muestra la vista completa del alineamiento en el visualizador del EBI. Cada color representa un aminoácido distinto. Se puede ver claramente cómo las 4 secuencias de vertebrados (pez globo, humano, rata y ratón) tienen patrones de color muy similares a lo largo de toda la proteína, mientras que Dictyostelium (primera fila) muestra muchas más diferencias y gaps, especialmente en la región central.
 
 ![Visualización del alineamiento múltiple](results/grafico_msa.png)
+
+&nbsp;
+
+## Ejercicio 4 - Análisis del reporte BLAST por patrón
+
+El script `Ex4.pl` lee el reporte de BLAST generado en el Ejercicio 2 y busca, entre los hits, aquellos cuya descripción contenga un patrón de texto dado por parámetro (por ejemplo, el nombre de un organismo).
+
+**Uso:**
+
+```bash
+perl scripts/Ex4.pl results/blast_local.out "Mus musculus" results/ex4
+```
+
+Parámetros:
+1. Archivo de salida de BLAST a analizar.
+2. Patrón a buscar en la descripción de los hits (no distingue mayúsculas/minúsculas).
+3. Prefijo para los archivos de salida (opcional).
+
+**Salidas:**
+- `results/ex4_hits.out`: listado de los hits que coinciden con el patrón, con su Accession, descripción, Score y E-value.
+- `results/ex4_sequences.fas`: secuencias completas de esos hits, descargadas desde GenBank (punto extra).
+
+### Resultado
+
+Usando como patrón **"Mus musculus"** sobre `blast_local.out`, se encontró 1 hit:
+
+| Accession | Descripción | Score | E-value |
+|-----------|-------------|-------|---------|
+| P42859.2 | Huntingtin [Mus musculus] | 14691 | 0.0 |
+
+### Punto extra: descarga de la secuencia completa
+
+Para descargar la secuencia completa con `Bio::DB::GenBank` hizo falta un paso intermedio: el accession del hit (`P42859.2`) es un identificador de UniProt, y GenBank no lo reconoce directamente. Por eso, el script primero consulta UniProt con `Bio::DB::SwissProt` para obtener el accession equivalente en GenBank (`L23312`), y con ese accession descarga la secuencia completa (mRNA de ratón, 9992 nucleótidos), que queda guardada en `results/ex4_sequences.fas`.
