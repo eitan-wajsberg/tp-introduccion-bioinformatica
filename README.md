@@ -337,3 +337,29 @@ Luego, el script corre `patmatmotifs` sobre la secuencia de aminoácidos (`data/
 | TYR_PHOSPHO_SITE_2 | 2762–2769 | Sitio de fosforilación por tirosina kinasa |
 
 Los reportes completos están en `results/ex5_orfs.out` y `results/ex5_dominios.out`.
+
+### Análisis adicional con InterPro
+
+También analizamos la secuencia de la huntingtina en [InterPro](https://www.ebi.ac.uk/interpro/), 
+que integra múltiples bases de datos de dominios (Pfam, PRINTS, PANTHER, entre otras) en una 
+sola búsqueda.
+
+Los dominios más relevantes encontrados fueron:
+
+| Base de datos | Dominio | Posición | Descripción |
+|---------------|---------|----------|-------------|
+| PANTHER | IPR028426 | 49–3181 | Familia Huntingtin, cubre casi toda la proteína |
+| PRINTS | IPR000091 | múltiples | Firma característica de Huntingtin (6 regiones) |
+| Pfam | IPR048411 | 180–330 | Repeticiones HEAT N-terminal tipo 1 |
+| Pfam | IPR024613 | 804–1679 | Repeticiones HEAT N-terminal tipo 2 |
+| Pfam | IPR048413 | 2140–3146 | Repeticiones HEAT C-terminal |
+| Pfam | IPR048412 | 1833–2110 | Región "bridge" entre dominios HEAT |
+| GENE3D/SUPERFAMILY | IPR016024 | múltiples | Pliegue tipo ARM |
+
+Las repeticiones HEAT son el rasgo estructural más importante de la huntingtina: son bloques 
+repetidos de alfa-hélices que le permiten a la proteína interactuar con muchas otras proteínas 
+dentro de la célula. Su presencia en casi toda la longitud de la proteína explica por qué HTT 
+participa en tantos procesos biológicos distintos.
+
+Comparado con el análisis de PROSITE (que encontró solo 4 motivos genéricos), InterPro da 
+una imagen mucho más completa y específica de la estructura funcional de la proteína.
