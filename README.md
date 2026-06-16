@@ -304,3 +304,36 @@ Usando como patrón **"Mus musculus"** sobre `blast_local.out`, se encontró 1 h
 ### Punto extra: descarga de la secuencia completa
 
 Para descargar la secuencia completa con `Bio::DB::GenBank` hizo falta un paso intermedio: el accession del hit (`P42859.2`) es un identificador de UniProt, y GenBank no lo reconoce directamente. Por eso, el script primero consulta UniProt con `Bio::DB::SwissProt` para obtener el accession equivalente en GenBank (`L23312`), y con ese accession descarga la secuencia completa (mRNA de ratón, 9992 nucleótidos), que queda guardada en `results/ex4_sequences.fas`.
+
+&nbsp;
+
+## Ejercicio 5 - EMBOSS
+
+El script `Ex5.pl` usa dos programas de EMBOSS para analizar la secuencia del gen HTT.
+
+**Uso:**
+
+```bash
+perl scripts/Ex5.pl data/HTT_correcto.fas
+```
+
+Si no encontrás la base de datos PROSITE en `data/prosite.dat`, el script la descarga automáticamente.
+
+### getorf — búsqueda de ORFs en el mRNA
+
+Primero, el script convierte `data/sequence.gb` a FASTA de nucleótidos usando `seqret` (otro programa de EMBOSS), y luego corre `getorf` para encontrar todos los ORFs que empiezan con Met y tienen al menos 100 aminoácidos, en los 6 marcos de lectura posibles.
+
+Se encontraron 8 ORFs. El más relevante es el **ORF 1** (posiciones 146–9571), que corresponde a la proteína huntingtina completa de 3144 aa (el mismo marco +2 que identificamos en el Ejercicio 1).
+
+### patmatmotifs — búsqueda de dominios PROSITE
+
+Luego, el script corre `patmatmotifs` sobre la secuencia de aminoácidos (`data/HTT_correcto.fas`) para buscar motivos y dominios funcionales conocidos en la base de datos PROSITE. Se encontraron 4 motivos:
+
+| Motivo | Posición | Descripción |
+|--------|----------|-------------|
+| AMIDATION | 1578–1581 | Sitio de amidación C-terminal |
+| AMIDATION | 2591–2594 | Sitio de amidación C-terminal |
+| LEUCINE_ZIPPER | 1492–1513 | Patrón de leucine zipper |
+| TYR_PHOSPHO_SITE_2 | 2762–2769 | Sitio de fosforilación por tirosina kinasa |
+
+Los reportes completos están en `results/ex5_orfs.out` y `results/ex5_dominios.out`.
