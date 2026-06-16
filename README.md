@@ -340,11 +340,13 @@ Los reportes completos están en `results/ex5_orfs.out` y `results/ex5_dominios.
 
 ### Análisis adicional con InterPro
 
-También analizamos la secuencia de la huntingtina en [InterPro](https://www.ebi.ac.uk/interpro/), 
-que integra múltiples bases de datos de dominios (Pfam, PRINTS, PANTHER, entre otras) en una 
+También analizamos la secuencia de la huntingtina en [InterPro](https://www.ebi.ac.uk/interpro/),
+que integra múltiples bases de datos de dominios (Pfam, PRINTS, PANTHER, entre otras) en una
 sola búsqueda.
 
-Los dominios más relevantes encontrados fueron:
+Los resultados los obtuvimos ingresando la secuencia de `data/HTT_correcto.fas` en
+https://www.ebi.ac.uk/interpro/search/sequence/. De todos los resultados devueltos, mostramos
+solo los dominios que tienen una entrada asignada en InterPro, que son los más relevantes:
 
 | Base de datos | Dominio | Posición | Descripción |
 |---------------|---------|----------|-------------|
@@ -356,10 +358,10 @@ Los dominios más relevantes encontrados fueron:
 | Pfam | IPR048412 | 1833–2110 | Región "bridge" entre dominios HEAT |
 | GENE3D/SUPERFAMILY | IPR016024 | múltiples | Pliegue tipo ARM |
 
-Las repeticiones HEAT son el rasgo estructural más importante de la huntingtina: son bloques 
-repetidos de alfa-hélices que le permiten a la proteína interactuar con muchas otras proteínas 
-dentro de la célula. Su presencia en casi toda la longitud de la proteína explica por qué HTT 
+Las repeticiones HEAT son el rasgo estructural más importante de la huntingtina: son bloques
+repetidos de alfa-hélices que le permiten a la proteína interactuar con muchas otras proteínas
+dentro de la célula. Su presencia en casi toda la longitud de la proteína explica por qué HTT
 participa en tantos procesos biológicos distintos.
 
-Comparado con el análisis de PROSITE (que encontró solo 4 motivos genéricos), InterPro da 
+Comparado con el análisis de PROSITE (que encontró solo 4 motivos genéricos), InterPro da
 una imagen mucho más completa y específica de la estructura funcional de la proteína.
