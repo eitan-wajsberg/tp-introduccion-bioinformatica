@@ -448,29 +448,16 @@ Por ejemplo, aparecen varias proteínas relacionadas con muerte celular. Esto es
 * transporte de sustancias dentro de la célula
 * eliminación de proteínas dañadas
 * respuesta al estrés celular
-* organización y movimiento interno de la célula
 
 Otra interacción interesante es que HTT puede interactuar consigo misma. Esto es importante porque en la enfermedad de Huntington la proteína mutada tiende a acumularse y formar estructuras anormales dentro de las neuronas.
 
-En UniProt también aparecen proteínas relacionadas con otras enfermedades neurodegenerativas, como una proteína asociada a la enfermedad de Alzheimer.
-
-Además, en NCBI aparece una interacción entre HTT y una proteína del virus HIV-1, el virus que causa el SIDA. Nos resultó interesante porque muestra que huntingtina también puede interactuar con proteínas virales, no solamente con proteínas humanas.
+Comparando las dos bases de datos, NCBI incluye una interacción entre HTT y una proteína del virus HIV-1 que no aparece en UniProt. Nos resultó llamativa porque muestra que la huntingtina también puede interactuar con proteínas virales, no solamente con proteínas humanas. UniProt, por su parte, incluye interacciones con proteínas asociadas a la enfermedad de Alzheimer que no aparecen listadas en NCBI. Ambas bases de datos se complementan, ninguna tiene la lista completa de interacciones por sí sola.
 
 ### e) Gene Ontology (GO)
 
-Según la información de **NCBI Gene** (https://www.ncbi.nlm.nih.gov/gene/3064#general-gene-info), **UniProt** (https://www.uniprot.org/uniprotkb/P42858/entry#function) y **Gene Ontology (GO)** (https://amigo.geneontology.org/amigo/search/ontology?q=HTT), la proteína huntingtina (HTT) se encuentra principalmente en el **citoplasma** de la célula y en estructuras relacionadas con el transporte interno, como vesículas y endosomas. También puede encontrarse en el núcleo celular y en partes de las neuronas como axones y dendritas.
+Según la información de **NCBI Gene** (https://www.ncbi.nlm.nih.gov/gene/3064#general-gene-info), **UniProt** (https://www.uniprot.org/uniprotkb/P42858/entry#function) y **Gene Ontology (GO)** (https://amigo.geneontology.org/amigo/search/ontology?q=HTT), la huntingtina tiene los siguientes términos ontológicos:
+1. **Componente celular:** HTT se encuentra principalmente en el citoplasma y en estructuras relacionadas con el transporte interno de la célula, como vesículas y endosomas. También puede encontrarse en el núcleo y en partes específicas de las neuronas como axones y dendritas.
+2. **Proceso biológico:** HTT participa principalmente en el desarrollo y mantenimiento del sistema nervioso, en el transporte de vesículas dentro de la célula, en la regulación de la muerte celular programada (apoptosis) y en la eliminación de proteínas dañadas. Todos estos procesos son especialmente importantes en las neuronas, lo que explica por qué su mutación afecta principalmente al cerebro.
+3. **Función molecular:** HTT interactúa con muchas otras proteínas y participa en el transporte y organización interna de la célula. Puede unirse a proteínas del citoesqueleto, proteínas de señalización y proteínas relacionadas con la respuesta al estrés celular.
 
-Los términos de GO muestran que HTT participa sobre todo en procesos relacionados con el sistema nervioso y el funcionamiento de las neuronas. Entre los procesos biológicos más importantes aparecen:
-
-* desarrollo del sistema nervioso
-* generación y mantenimiento de neuronas
-* transporte de vesículas dentro de la célula
-* organización de estructuras celulares
-* regulación de señales celulares
-* respuesta al estrés celular
-* regulación de apoptosis (muerte celular programada)
-* eliminación de proteínas dañadas y reciclaje celular
-
-En cuanto a su función molecular, HTT interactúa con muchas otras proteínas y participa en el transporte y organización interna de la célula. También puede unirse a proteínas del citoesqueleto, proteínas de señalización y proteínas relacionadas con respuesta al estrés.
-
-En general, los resultados de GO muestran que huntingtina tiene un rol muy importante en el funcionamiento y mantenimiento de las neuronas, lo que coincide con el hecho de que su mutación produce la enfermedad de Huntington.
+La huntingtina tiene un rol muy importante en el funcionamiento y mantenimiento de las neuronas, lo que coincide con el hecho de que su mutación produce la enfermedad de Huntington.
