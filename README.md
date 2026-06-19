@@ -379,3 +379,34 @@ una imagen mucho más completa y específica de la estructura funcional de la pr
 La huntingtina es una proteína grande (3144 aminoácidos) presente en casi todos los tejidos del cuerpo, pero especialmente en el cerebro. No tiene una función única, sino que interactúa con muchas otras proteínas y participa en procesos como el transporte de vesículas, la supervivencia neuronal y la regulación de la expresión génica.
 
 Como ya explicamos anteriormente, la elegimos porque es la proteína responsable de la enfermedad de Huntington, una enfermedad neurodegenerativa hereditaria que lleva a la pérdida de control motor, deterioro cognitivo y eventualmente la muerte.
+
+### b) Genes/proteínas homólogas en otros organismos
+
+Un gen **homólogo** es un gen que viene de un mismo ancestro común. Dentro de los homólogos
+existen los genes **ortólogos**. Dos genes son ortólogos cuando se originaron a partir de un mismo gen ancestral, después de que una especie se dividió en dos a lo largo de la evolución.
+
+- En **NCBI** (https://www.ncbi.nlm.nih.gov/datasets/gene/3064/#orthologs) encontramos **846
+genes ortólogos** de HTT. La lista incluye organismos muy variados: otros primates (chimpancé,
+marmoset, macaco), roedores (ratón, rata, hámster), otros mamíferos (vaca, oveja, perro, cerdo,
+caballo) y también vertebrados que no son mamíferos, como el pez cebra, la rana y el pollo.
+- En **Ensembl** (https://www.ensembl.org/Homo_sapiens/Gene/Compara_Ortholog?db=core;g=ENSG00000197386)
+encontramos **206 ortólogos**, bastante menos que en NCBI. Pero Ensembl también encontró
+ortólogos en invertebrados, como la mosca de la fruta (*Drosophila melanogaster*, 16.8% de
+identidad) y el gusano *Caenorhabditis elegans* (18.9% de identidad). Esto nos dice que HTT es
+un gen muy antiguo, que ya estaba presente antes de que se separaran los linajes de insectos,
+gusanos y vertebrados. Por otro lado, no se encontró ningún ortólogo en la levadura
+(*Saccharomyces cerevisiae*), lo que tiene sentido porque HTT parece haber aparecido recién con
+la evolución de los animales.
+
+#### Qué tan común son estos genes
+
+NCBI da una lista más simple, centrada en vertebrados, mientras que Ensembl incluye
+invertebrados y da más detalle por cada ortólogo, como el porcentaje de identidad y el tipo de
+relación entre los genes.
+
+#### A qué grupos taxonómicos pertenecen
+
+Por la cantidad de ortólogos encontrados y lo lejos que llega en el árbol de la vida (hasta
+invertebrados), HTT parece ser un gen bastante conservado y presente en casi todos los
+animales, lo que sugiere que cumple una función importante y ancestral en el desarrollo y
+funcionamiento de las células.
