@@ -370,16 +370,12 @@ una imagen mucho más completa y específica de la estructura funcional de la pr
 
 ## Ejercicio 6 - Bases de Datos Biológicas
 
-### a) Gen de interés en NCBI Gene
+### a) Gen de interés en el NCBI
 
 - **Gen:** HTT (Huntingtin)
 - **Organismo:** Homo sapiens
 - **Link:** https://www.ncbi.nlm.nih.gov/gene/3064
 
-La huntingtina es una proteína grande (3144 aminoácidos) presente en casi todos los tejidos
-del cuerpo, pero especialmente abundante en el cerebro. Actúa como una especie de andamio
-dentro de la célula: no tiene una función única, sino que interactúa con muchas otras proteínas
-y participa en procesos como el transporte de vesículas, la supervivencia neuronal y la
-regulación de la expresión génica.
+La huntingtina es una proteína grande (3144 aminoácidos) presente en casi todos los tejidos del cuerpo, pero especialmente en el cerebro. No tiene una función única, sino que interactúa con muchas otras proteínas y participa en procesos como el transporte de vesículas, la supervivencia neuronal y la regulación de la expresión génica.
 
-Como ya explicamos anteriormente, la elegimos porque es la proteína responsable de la enfermedad de Huntington (HD), una enfermedad neurodegenerativa hereditaria que, lleva a la pérdida de control motor, deterioro cognitivo y eventualmente la muerte.
+Como ya explicamos anteriormente, la elegimos porque es la proteína responsable de la enfermedad de Huntington, una enfermedad neurodegenerativa hereditaria que lleva a la pérdida de control motor, deterioro cognitivo y eventualmente la muerte.
