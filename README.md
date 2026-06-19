@@ -383,7 +383,8 @@ Como ya explicamos anteriormente, la elegimos porque es la proteína responsable
 ### b) Genes/proteínas homólogas en otros organismos
 
 Un gen **homólogo** es un gen que viene de un mismo ancestro común. Dentro de los homólogos
-existen los genes **ortólogos**. Dos genes son ortólogos cuando se originaron a partir de un mismo gen ancestral, después de que una especie se dividió en dos a lo largo de la evolución.
+existen los genes **ortólogos**. Dos genes son ortólogos cuando se originaron a partir de un
+mismo gen ancestral, después de que una especie se dividió en dos a lo largo de la evolución.
 
 - En **NCBI** (https://www.ncbi.nlm.nih.gov/datasets/gene/3064/#orthologs) encontramos **846
 genes ortólogos** de HTT. La lista incluye organismos muy variados: otros primates (chimpancé,
@@ -398,15 +399,21 @@ gusanos y vertebrados. Por otro lado, no se encontró ningún ortólogo en la le
 (*Saccharomyces cerevisiae*), lo que tiene sentido porque HTT parece haber aparecido recién con
 la evolución de los animales.
 
-#### Qué tan común son estos genes
+#### ¿En qué se diferencian estas bases de datos?
 
-NCBI da una lista más simple, centrada en vertebrados, mientras que Ensembl incluye
-invertebrados y da más detalle por cada ortólogo, como el porcentaje de identidad y el tipo de
-relación entre los genes.
+NCBI da una lista más simple, centrada en vertebrados, con datos básicos por organismo
+(símbolo del gen, cromosoma, accession, longitud de la proteína). Ensembl cubre un rango
+taxonómico más amplio, llegando hasta invertebrados, y da mucho más detalle por cada
+ortólogo: porcentaje de identidad, tipo de relación entre los genes (uno a uno, uno a muchos,
+etc.) y nivel de confianza de la asignación.
 
-#### A qué grupos taxonómicos pertenecen
+#### ¿Qué tan comunes son estos genes?
 
-Por la cantidad de ortólogos encontrados y lo lejos que llega en el árbol de la vida (hasta
-invertebrados), HTT parece ser un gen bastante conservado y presente en casi todos los
-animales, lo que sugiere que cumple una función importante y ancestral en el desarrollo y
-funcionamiento de las células.
+HTT tiene cientos de ortólogos identificados, lo que indica que es un gen muy conservado a lo
+largo de la evolución. No es un gen exclusivo de unas pocas especies, sino que está presente en
+prácticamente todos los animales vertebrados, y también en varios invertebrados.
+
+#### ¿A qué grupos taxonómicos pertenecen?
+
+Los ortólogos de HTT aparecen en mamíferos, aves, reptiles, anfibios y peces, y también en
+invertebrados como insectos (mosca de la fruta). No se encontró en hongos como la levadura, lo que sugiere que el gen apareció en algún punto temprano de la evolución de los animales y se mantuvo conservado desde entonces.
