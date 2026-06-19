@@ -1,4 +1,4 @@
-# TP Introducción a la Bioinformática
+# TP Introducción a la Bioinformática: Parte 1 y 2
 
 Elegimos para realizar el trabajo la **Enfermedad de Huntington (HD)**, catalogada en OMIM con el código [#143100](https://www.omim.org/entry/143100?search=Huntington&highlight=huntington). El gen asociado es **HTT** (Huntingtin), ubicado en el cromosoma 4p16.3. La secuencia de referencia utilizada es el transcripto [NM_001388492.1](https://www.ncbi.nlm.nih.gov/nuccore/NM_001388492.1) (huntingtina isoforma 1, Homo sapiens), obtenida de la base de datos [NCBI Gene](https://www.ncbi.nlm.nih.gov/gene/3064) en formato GenBank.
 
@@ -437,3 +437,21 @@ El transcripto principal (HTT-201/`NM_001388492.1`) es el único con evidencia c
 #### ¿Cuál base de datos es más precisa?
 
 Ensembl reporta muchos más transcriptos, pero eso no significa que todos sean funcionales. La mayoría no llegan a producir una proteína completa. NCBI, en cambio, es más conservador y muestra solo los transcriptos con evidencia más sólida de funcionalidad. Para este TP, NCBI nos parece más claro y confiable para identificar los transcriptos funcionales, mientras que Ensembl sirve más para ver toda la variabilidad de splicing del gen.
+
+### d) Interacciones proteína-proteína
+
+En **NCBI Gene** (https://www.ncbi.nlm.nih.gov/gene/3064#interactions) encontramos alrededor de **560 interacciones** reportadas para HTT. En **UniProt** (https://www.uniprot.org/uniprotkb/P42858/entry#interaction) también aparece una gran cantidad de interacciones asociadas. Muchas de ellas están relacionadas con el funcionamiento de las neuronas y con procesos asociados a enfermedades neurodegenerativas.
+
+Por ejemplo, aparecen varias proteínas relacionadas con muerte celular. Esto es interesante porque la enfermedad de Huntington produce una pérdida progresiva de neuronas. También aparecen interacciones vinculadas con:
+
+* comunicación y señalización entre células
+* transporte de sustancias dentro de la célula
+* eliminación de proteínas dañadas
+* respuesta al estrés celular
+* organización y movimiento interno de la célula
+
+Otra interacción interesante es que HTT puede interactuar consigo misma. Esto es importante porque en la enfermedad de Huntington la proteína mutada tiende a acumularse y formar estructuras anormales dentro de las neuronas.
+
+En UniProt también aparecen proteínas relacionadas con otras enfermedades neurodegenerativas, como una proteína asociada a la enfermedad de Alzheimer.
+
+Además, en NCBI aparece una interacción entre HTT y una proteína del virus HIV-1, el virus que causa el SIDA. Nos resultó interesante porque muestra que huntingtina también puede interactuar con proteínas virales, no solamente con proteínas humanas.
