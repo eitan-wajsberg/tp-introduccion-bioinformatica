@@ -417,3 +417,23 @@ prácticamente todos los animales vertebrados, y también en varios invertebrado
 
 Los ortólogos de HTT aparecen en mamíferos, aves, reptiles, anfibios y peces, y también en
 invertebrados como insectos (mosca de la fruta). No se encontró en hongos como la levadura, lo que sugiere que el gen apareció en algún punto temprano de la evolución de los animales y se mantuvo conservado desde entonces.
+
+### c) Transcriptos y splicing alternativo
+
+- En **NCBI** (https://www.ncbi.nlm.nih.gov/datasets/gene/3064/#transcripts-and-proteins) encontramos **2 transcriptos** para HTT: `NM_001388492.1` (13.472 pb, proteína de 3.142 aa, el que usamos en este TP) y `NM_002111.8` (13.498 pb, proteína de 3.144 aa). Ambos codifican prácticamente la misma proteína, con una diferencia de 2 aminoácidos.
+
+- En **Ensembl** (https://www.ensembl.org/Homo_sapiens/Gene/TranscriptComparison?db=core;g=ENSG00000197386;r=4:3041363-3243957) encontramos **24 transcriptos**. De esos, solo 6 están clasificados como "Protein coding" (codifican una proteína completa): el principal es HTT-201
+(`ENST00000355072.11`), que es el mismo que reporta NCBI. Los otros 5
+son variantes más cortas, con proteínas de distinto tamaño (desde 97 hasta 3.086 aminoácidos).
+Los 18 transcriptos restantes no llegan a producir una proteína funcional completa:
+10 son "Retained intron" (conservan intrones sin terminar el splicing), 4 son "Nonsense mediated
+decay" (tienen errores que activan un mecanismo de degradación) y 4 están marcados como
+codificantes pero sin marco de lectura definido.
+
+#### ¿Cuáles se expresan y tienen funciones alternativas?
+
+El transcripto principal (HTT-201/`NM_001388492.1`) es el único con evidencia clara de producir la proteína huntingtina completa. Los otros transcriptos codificantes de Ensembl generan proteínas más cortas, pero no hay evidencia sólida de que tengan funciones distintas. Probablemente sean variantes menos frecuentes o específicas de ciertos tejidos.
+
+#### ¿Cuál base de datos es más precisa?
+
+Ensembl reporta muchos más transcriptos, pero eso no significa que todos sean funcionales. La mayoría no llegan a producir una proteína completa. NCBI, en cambio, es más conservador y muestra solo los transcriptos con evidencia más sólida de funcionalidad. Para este TP, NCBI nos parece más claro y confiable para identificar los transcriptos funcionales, mientras que Ensembl sirve más para ver toda la variabilidad de splicing del gen.
