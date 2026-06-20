@@ -270,7 +270,9 @@ La siguiente captura muestra la vista completa del alineamiento en el visualizad
 
 ## Ejercicio 4 - Análisis del reporte BLAST por patrón
 
-El script `Ex4.pl` lee el reporte de BLAST generado en el Ejercicio 2 y busca, entre los hits, aquellos cuya descripción contenga un patrón de texto dado por parámetro (por ejemplo, el nombre de un organismo).
+El script `Ex4.pl` toma el resultado del BLAST (Ejercicio 2) y filtra los hits según un texto que
+le pasamos por parámetro. Por ejemplo, si queremos quedarnos solo con los resultados de un
+organismo en particular, le pasamos su nombre y el script nos devuelve solo esos hits.
 
 **Uso:**
 
@@ -303,7 +305,9 @@ Para descargar la secuencia completa con `Bio::DB::GenBank` hizo falta un paso i
 
 ## Ejercicio 5 - EMBOSS
 
-El script `Ex5.pl` usa dos programas de EMBOSS para analizar la secuencia del gen HTT.
+El script `Ex5.pl` usa dos programas de EMBOSS para analizar la secuencia del gen HTT: uno
+busca posibles genes dentro del mRNA, y el otro busca dominios funcionales conocidos en la
+proteína.
 
 **Uso:**
 
@@ -315,13 +319,21 @@ Si no encontrás la base de datos PROSITE en `data/prosite.dat`, el script la de
 
 ### getorf — búsqueda de ORFs en el mRNA
 
-Primero, el script convierte `data/sequence.gb` a FASTA de nucleótidos usando `seqret` (otro programa de EMBOSS), y luego corre `getorf` para encontrar todos los ORFs que empiezan con Met y tienen al menos 100 aminoácidos, en los 6 marcos de lectura posibles.
+`getorf` busca posibles genes (ORFs) dentro de una secuencia de ADN.  Antes de poder usar `getorf`, el script convierte `data/sequence.gb` a un FASTA de nucleótidos con `seqret` (otro programa de EMBOSS), porque `getorf` necesita ese formato como entrada. Después corre `getorf` pidiendo que busque ORFs en los 6 marcos de lectura posibles, con al menos 100 aminoácidos de largo.
 
-Se encontraron 8 ORFs. El más relevante es el **ORF 1** (posiciones 146–9571), que corresponde a la proteína huntingtina completa de 3144 aa (el mismo marco +2 que identificamos en el Ejercicio 1).
+El resultado fueron 8 ORFs. El más relevante es el **ORF 1** (posiciones 146–9571), que
+coincide con la proteína huntingtina completa de 3144 aa que ya habíamos identificado a mano
+en el Ejercicio 1 (el marco +2).
 
 ### patmatmotifs — búsqueda de dominios PROSITE
 
-Luego, el script corre `patmatmotifs` sobre la secuencia de aminoácidos (`data/HTT_correcto.fas`) para buscar motivos y dominios funcionales conocidos en la base de datos PROSITE. Se encontraron 4 motivos:
+`patmatmotifs` busca dentro de una proteína fragmentos cortos que coincidan con patrones
+conocidos guardados en la base de datos PROSITE. Cada uno de esos patrones representa una
+región con una función conocida (por ejemplo, un lugar donde otra proteína se puede unir, o
+donde ocurre una modificación química).
+
+Corriendo `patmatmotifs` sobre la proteína huntingtina (`data/HTT_correcto.fas`), se
+encontraron 4 coincidencias:
 
 | Motivo | Posición | Descripción |
 |--------|----------|-------------|
@@ -334,13 +346,12 @@ Los reportes completos están en `results/ex5_orfs.out` y `results/ex5_dominios.
 
 ### Análisis adicional con InterPro
 
-También analizamos la secuencia de la huntingtina en [InterPro](https://www.ebi.ac.uk/interpro/),
-que integra múltiples bases de datos de dominios (Pfam, PRINTS, PANTHER, entre otras) en una
-sola búsqueda.
+PROSITE solo encontró 4 coincidencias puntuales y cortas. Para tener una visión más completa
+de la proteína, también la analizamos en [InterPro](https://www.ebi.ac.uk/interpro/), que junta varias bases de datos de dominios (Pfam, PRINTS, PANTHER, entre otras) en una sola búsqueda.
 
-Los resultados los obtuvimos ingresando la secuencia de `data/HTT_correcto.fas` en
-https://www.ebi.ac.uk/interpro/search/sequence/. De todos los resultados devueltos, mostramos
-solo los dominios que tienen una entrada asignada en InterPro, que son los más relevantes:
+Cargamos la secuencia de `data/HTT_correcto.fas` en
+https://www.ebi.ac.uk/interpro/search/sequence/. De todos los resultados que devolvió,
+mostramos solo los que tienen una entrada asignada en InterPro, que son los más relevantes:
 
 | Base de datos | Dominio | Posición | Descripción |
 |---------------|---------|----------|-------------|
@@ -352,13 +363,14 @@ solo los dominios que tienen una entrada asignada en InterPro, que son los más 
 | Pfam | IPR048412 | 1833–2110 | Región "bridge" entre dominios HEAT |
 | GENE3D/SUPERFAMILY | IPR016024 | múltiples | Pliegue tipo ARM |
 
-Las repeticiones HEAT son el rasgo estructural más importante de la huntingtina: son bloques
-repetidos de alfa-hélices que le permiten a la proteína interactuar con muchas otras proteínas
-dentro de la célula. Su presencia en casi toda la longitud de la proteína explica por qué HTT
-participa en tantos procesos biológicos distintos.
+Lo más relevante de esta lista son las repeticiones HEAT. Son bloques de la proteína que se
+repiten varias veces a lo largo de toda su longitud, y le permiten a la huntingtina engancharse
+con muchas otras proteínas dentro de la célula. Por eso aparece en tantos procesos biológicos
+distintos: estos bloques actúan como puntos de conexión.
 
-Comparado con el análisis de PROSITE (que encontró solo 4 motivos genéricos), InterPro da
-una imagen mucho más completa y específica de la estructura funcional de la proteína.
+En conclusión, InterPro da una imagen mucho más completa de la proteína que PROSITE: mientras
+que PROSITE encontró solo 4 motivos genéricos, InterPro identificó la estructura general que
+explica gran parte de cómo funciona la huntingtina.
 
 &nbsp;
 
