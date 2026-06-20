@@ -478,3 +478,21 @@ relacionada con el procesamiento del ARN mensajero dentro de la célula.
 
 HTT es una proteína central en el funcionamiento de la célula, y su mal funcionamiento no solo está
 implicado en la enfermedad de Huntington, sino que comparte mecanismos con otras enfermedades neurodegenerativas.
+
+### g) Variantes genéticas en dbSNP
+
+Al buscar variantes de HTT en [dbSNP](https://www.ncbi.nlm.nih.gov/snp/?term=htt) filtrando por
+"pathogenic" (patogénicas), encontramos que la mayoría de las variantes catalogadas en HTT son
+benignas. Esto tiene sentido, porque como ya explicamos, la causa principal de la enfermedad de Huntington no es un cambio puntual en el ADN, sino la expansión anormal de repeticiones CAG, que dbSNP no cataloga de la misma forma que un SNP común.
+
+Entre las pocas variantes marcadas como patogénicas, elegimos
+[**rs745583559**](https://www.ncbi.nlm.nih.gov/snp/rs745583559), una deleción de un solo
+nucleótido que provoca un corrimiento del marco de lectura en la proteína. Es una
+variante extremadamente rara: a nivel global tiene una frecuencia de apenas 0.0000036 (5 casos
+en 1.400.526 personas analizadas en gnomAD).
+
+Mirando la frecuencia por población, la mayoría de los grupos (asiático, africano, americano,
+judío Ashkenazi, medio oriental) no presentan ningún caso registrado. El único grupo donde se
+detectó algún caso es la población **europea**, aunque con una frecuencia igualmente muy baja
+(0.0000043). Esto confirma que se trata de un caso aislado y no de una variante representativa
+de la enfermedad en la población general.
