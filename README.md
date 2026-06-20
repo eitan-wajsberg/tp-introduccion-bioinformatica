@@ -422,8 +422,7 @@ invertebrados como insectos (mosca de la fruta). No se encontró en hongos como 
 
 - En **NCBI** (https://www.ncbi.nlm.nih.gov/datasets/gene/3064/#transcripts-and-proteins) encontramos **2 transcriptos** para HTT: `NM_001388492.1` (13.472 pb, proteína de 3.142 aa, el que usamos en este TP) y `NM_002111.8` (13.498 pb, proteína de 3.144 aa). Ambos codifican prácticamente la misma proteína, con una diferencia de 2 aminoácidos.
 
-- En **Ensembl** (https://www.ensembl.org/Homo_sapiens/Gene/TranscriptComparison?db=core;g=ENSG00000197386;r=4:3041363-3243957) encontramos **24 transcriptos**. De esos, solo 6 están clasificados como "Protein coding" (codifican una proteína completa): el principal es HTT-201
-(`ENST00000355072.11`), que es el mismo que reporta NCBI. Los otros 5
+- En **Ensembl** (https://www.ensembl.org/Homo_sapiens/Gene/TranscriptComparison?db=core;g=ENSG00000197386;r=4:3041363-3243957) encontramos **24 transcriptos**. De esos, solo 6 están clasificados como "Protein coding" (codifican una proteína completa): el principal es HTT-201, que es el mismo que reporta NCBI. Los otros 5
 son variantes más cortas, con proteínas de distinto tamaño (desde 97 hasta 3.086 aminoácidos).
 Los 18 transcriptos restantes no llegan a producir una proteína funcional completa:
 10 son "Retained intron" (conservan intrones sin terminar el splicing), 4 son "Nonsense mediated
@@ -440,7 +439,7 @@ Ensembl reporta muchos más transcriptos, pero eso no significa que todos sean f
 
 ### d) Interacciones proteína-proteína
 
-En **NCBI Gene** (https://www.ncbi.nlm.nih.gov/gene/3064#interactions) encontramos alrededor de **560 interacciones** reportadas para HTT. En **UniProt** (https://www.uniprot.org/uniprotkb/P42858/entry#interaction) también aparece una gran cantidad de interacciones asociadas. Muchas de ellas están relacionadas con el funcionamiento de las neuronas y con procesos asociados a enfermedades neurodegenerativas.
+En **NCBI Gene** (https://www.ncbi.nlm.nih.gov/gene/3064#interactions) encontramos **560 interacciones** reportadas para HTT. En **UniProt** (https://www.uniprot.org/uniprotkb/P42858/entry#interaction) también aparece una gran cantidad de interacciones asociadas. Muchas de ellas están relacionadas con el funcionamiento de las neuronas y con procesos asociados a enfermedades neurodegenerativas.
 
 Por ejemplo, aparecen varias proteínas relacionadas con muerte celular. Esto es interesante porque la enfermedad de Huntington produce una pérdida progresiva de neuronas. También aparecen interacciones vinculadas con:
 
@@ -461,3 +460,21 @@ Según la información de **NCBI Gene** (https://www.ncbi.nlm.nih.gov/gene/3064#
 3. **Función molecular:** HTT interactúa con muchas otras proteínas y participa en el transporte y organización interna de la célula. Puede unirse a proteínas del citoesqueleto, proteínas de señalización y proteínas relacionadas con la respuesta al estrés celular.
 
 La huntingtina tiene un rol muy importante en el funcionamiento y mantenimiento de las neuronas, lo que coincide con el hecho de que su mutación produce la enfermedad de Huntington.
+
+### f) Vías metabólicas (pathways)
+
+- En **Reactome** (https://reactome.org/content/detail/R-HSA-9023590) encontramos que HTT
+participa en el proceso de expresión génica (transcripción). En el
+[Pathway Browser de Reactome](https://reactome.org/PathwayBrowser/#/R-HSA-8986944&SEL=R-HSA-9023590&PATH=R-HSA-74160,R-HSA-73857,R-HSA-212436&DTAB=AN)
+se puede ver el diagrama interactivo de esta vía. Reactome también reporta una cantidad enorme de proteínas con las que HTT interactúa: **883 en total**, lo que confirma que es una proteína altamente
+conectada dentro de la célula.
+
+- En **KEGG** (https://www.kegg.jp/kegg-bin/search_pathway_text?map=map&keyword=htt&mode=1&viewImage=true) HTT aparece en dos
+pathways principales: **"Huntington disease"**, que describe específicamente los mecanismos
+moleculares de la enfermedad, y **"Pathways of neurodegeneration - multiple diseases"**, un
+pathway más general que agrupa los mecanismos compartidos entre varias enfermedades
+neurodegenerativas (Alzheimer, Parkinson, Huntington, entre otras). También aparece
+relacionada con el procesamiento del ARN mensajero dentro de la célula.
+
+HTT es una proteína central en el funcionamiento de la célula, y su mal funcionamiento no solo está
+implicado en la enfermedad de Huntington, sino que comparte mecanismos con otras enfermedades neurodegenerativas.
