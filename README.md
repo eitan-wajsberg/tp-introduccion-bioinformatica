@@ -75,29 +75,23 @@ La enfermedad puede aparecer más temprano y de forma más grave en cada generac
 tp-introduccion-bioinformatica/
 ├── README.md
 ├── .gitignore
+├── blast_db/                  # Base de datos SwissProt para BLAST local (no incluida en el repo por su tamaño)
 ├── data/
 │   ├── sequence.gb            # Archivo GenBank del mRNA de referencia del gen HTT (NM_001388492.1)
 │   ├── ORFs_HTT.fas           # Los 6 marcos de lectura traducidos a aminoácidos
 │   ├── HTT_correcto.fas       # Solo el marco de lectura correcto (+2)
-│   ├── humano.fasta           # Secuencia proteína huntingtina Homo sapiens (P42858)
-│   ├── raton.fasta            # Secuencia proteína huntingtina Mus musculus (P42859)
-│   ├── rata.fasta             # Secuencia proteína huntingtina Rattus norvegicus (P51111)
-│   ├── pez_globo.fasta        # Secuencia proteína huntingtina Takifugu rubripes (P51112)
-│   ├── dictyostelium.fasta    # Secuencia proteína huntingtina Dictyostelium discoideum (Q76P24)
-│   └── secuencia_msa.fasta    # Las 5 secuencias juntas para el alineamiento múltiple
-├── scripts/
-│   ├── verificar_entorno.sh   # Script para verificar que el entorno está correctamente instalado
-│   ├── Ex1.pl                 # Ejercicio 1: procesamiento de secuencias y traducción
-│   ├── Ex2_local.pl           # Ejercicio 2: BLAST local contra SwissProt
-│   └── Ex2_remoto.pl          # Ejercicio 2: BLAST remoto contra servidor NCBI
-└── results/
-    ├── blast_local.out        # Resultado del BLAST local
-    ├── blast_remoto.out       # Resultado del BLAST remoto
-    ├── fasta.out              # Resultado del FASTA online (EBI)
-    ├── msa.out                # Resultado del alineamiento múltiple (Clustal Omega)
-    └── grafico_msa.png        # Visualización gráfica del alineamiento múltiple
+│   ├── HTT_mrna.fasta         # Secuencia de nucleótidos del mRNA en formato FASTA
+│   ├── secuencia_msa.fasta    # Secuencias de los 5 organismos para el alineamiento múltiple
+│   ├── prosite.dat / prosite.doc / PROSITE/  # Base de datos PROSITE (no incluida en el repo, se descarga automáticamente)
+│   └── (humano/raton/rata/pez_globo/dictyostelium.fasta)  # Secuencias individuales usadas para armar secuencia_msa.fasta
+└── scripts/
+    ├── Ex1.pl                 # Ejercicio 1: marcos de lectura y traducción
+    ├── Ex2_local.pl           # Ejercicio 2: BLAST local
+    ├── Ex2_remoto.pl          # Ejercicio 2: BLAST remoto
+    ├── Ex4.pl                 # Ejercicio 4: análisis de reporte BLAST por patrón
+    └── Ex5.pl                 # Ejercicio 5: EMBOSS (getorf + patmatmotifs)
 ```
-> La carpeta `blast_db/` con la base de datos SwissProt no se incluye en el repositorio por su tamaño, pero tener en cuenta que es necesario para correrlo en local.
+> La carpeta `blast_db/` y los archivos de PROSITE no se incluyen en el repositorio por su tamaño, pero son necesarios para correr los scripts en local. El `.gitignore` los excluye y los scripts los descargan/generan automáticamente cuando hace falta.
 
 ### Modo de uso de los scripts
 Todos los scripts deben ejecutarse siempre desde la raíz del repositorio, no desde dentro de la carpeta `scripts/`. Esto garantiza que las rutas de input y output funcionen correctamente. Ejemplo de uso correcto:
