@@ -251,12 +251,12 @@ En conjunto, el MSA refuerza las conclusiones del BLAST: la huntingtina es una p
 El siguiente bloque muestra una de las regiones con mayor conservación entre los 5 organismos:
 
 ```
-sp|Q76P24.1|HD_DICDI      FPRFLSIAISLLLRAHGDKDLNVYSVAEESLNRTIKILVYSYHERILFELFKVLKGKPHQ	107
-sp|P51112.1|HD_TAKRU      FQKLLGIAMEMFLLCSDDSESDVRMVADECLNRIIKALMDSNLPRLQLELYKEIKKNG--	123
-sp|P42858.2|HD_HUMAN      FQKLLGIAMELFLLCSDDAESDVRMVADECLNKVIKALMDSNLPRLQLELYKEIKKNG--	178
-sp|P51111.1|HD_RAT        FQKLLGIAMELFLLCSDDA-SRRRMVADECLNKVIKALMDSNLPRLQLELYKEIKKNG--	148
-sp|P42859.2|HD_MOUSE      FQKLLGIAMELFLLCSNDAESDVRMVADECLNKVIKALMDSNLPRLQLELYKEIKKNG--	157
-                          * ::*.**:.::* . .*       **:*.**: ** *: *   *: :**:* :* :   
+Q76P24.1      FPRFLSIAISLLLRAHGDKDLNVYSVAEESLNRTIKILVYSYHERILFELFKVLKGKPHQ	107
+P51112.1      FQKLLGIAMEMFLLCSDDSESDVRMVADECLNRIIKALMDSNLPRLQLELYKEIKKNG--	123
+P42858.2      FQKLLGIAMELFLLCSDDAESDVRMVADECLNKVIKALMDSNLPRLQLELYKEIKKNG--	178
+P51111.1      FQKLLGIAMELFLLCSDDA-SRRRMVADECLNKVIKALMDSNLPRLQLELYKEIKKNG--	148
+P42859.2      FQKLLGIAMELFLLCSNDAESDVRMVADECLNKVIKALMDSNLPRLQLELYKEIKKNG--	157
+              * ::*.**:.::* . .*       **:*.**: ** *: *   *: :**:* :* :   
 ```
 
 Los símbolos de la última línea indican: `*` posición idéntica en los 5 organismos, `:` posición muy similar, `.` posición con cierta similitud. Se puede ver claramente que humano, ratón, rata y pez globo son casi idénticos en esta región, mientras que *Dictyostelium* diverge bastante pero comparte algunas posiciones clave, lo que refuerza la idea de un núcleo funcional ancestral.
@@ -270,9 +270,7 @@ La siguiente captura muestra la vista completa del alineamiento en el visualizad
 
 ## Ejercicio 4 - Análisis del reporte BLAST por patrón
 
-El script `Ex4.pl` toma el resultado del BLAST (Ejercicio 2) y filtra los hits según un texto que
-le pasamos por parámetro. Por ejemplo, si queremos quedarnos solo con los resultados de un
-organismo en particular, le pasamos su nombre y el script nos devuelve solo esos hits.
+El script `Ex4.pl` toma el resultado del BLAST (Ejercicio 2) y filtra los hits según un texto que le pasamos por parámetro. Por ejemplo, si queremos quedarnos solo con los resultados de un organismo en particular, le pasamos su nombre y el script nos devuelve solo esos hits.
 
 **Uso:**
 
@@ -305,9 +303,7 @@ Para descargar la secuencia completa con `Bio::DB::GenBank` hizo falta un paso i
 
 ## Ejercicio 5 - EMBOSS
 
-El script `Ex5.pl` usa dos programas de EMBOSS para analizar la secuencia del gen HTT: uno
-busca posibles genes dentro del mRNA, y el otro busca dominios funcionales conocidos en la
-proteína.
+El script `Ex5.pl` usa dos programas de EMBOSS para analizar la secuencia del gen HTT: uno busca posibles genes dentro del mRNA, y el otro busca dominios funcionales conocidos en la proteína.
 
 **Uso:**
 
@@ -321,19 +317,13 @@ Si no encontrás la base de datos PROSITE en `data/prosite.dat`, el script la de
 
 `getorf` busca posibles genes (ORFs) dentro de una secuencia de ADN.  Antes de poder usar `getorf`, el script convierte `data/sequence.gb` a un FASTA de nucleótidos con `seqret` (otro programa de EMBOSS), porque `getorf` necesita ese formato como entrada. Después corre `getorf` pidiendo que busque ORFs en los 6 marcos de lectura posibles, con al menos 100 aminoácidos de largo.
 
-El resultado fueron 8 ORFs. El más relevante es el **ORF 1** (posiciones 146–9571), que
-coincide con la proteína huntingtina completa de 3144 aa que ya habíamos identificado a mano
-en el Ejercicio 1 (el marco +2).
+El resultado fueron 8 ORFs. El más relevante es el **ORF 1** (posiciones 146–9571), que coincide con la proteína huntingtina completa de 3144 aa que ya habíamos identificado a mano en el Ejercicio 1 (el marco +2).
 
 ### patmatmotifs — búsqueda de dominios PROSITE
 
-`patmatmotifs` busca dentro de una proteína fragmentos cortos que coincidan con patrones
-conocidos guardados en la base de datos PROSITE. Cada uno de esos patrones representa una
-región con una función conocida (por ejemplo, un lugar donde otra proteína se puede unir, o
-donde ocurre una modificación química).
+`patmatmotifs` busca dentro de una proteína fragmentos cortos que coincidan con patrones conocidos guardados en la base de datos PROSITE. Cada uno de esos patrones representa una región con una función conocida (por ejemplo, un lugar donde otra proteína se puede unir, o donde ocurre una modificación química).
 
-Corriendo `patmatmotifs` sobre la proteína huntingtina (`data/HTT_correcto.fas`), se
-encontraron 4 coincidencias:
+Corriendo `patmatmotifs` sobre la proteína huntingtina (`data/HTT_correcto.fas`), se encontraron 4 coincidencias:
 
 | Motivo | Posición | Descripción |
 |--------|----------|-------------|
@@ -346,12 +336,9 @@ Los reportes completos están en `results/ex5_orfs.out` y `results/ex5_dominios.
 
 ### Análisis adicional con InterPro
 
-PROSITE solo encontró 4 coincidencias puntuales y cortas. Para tener una visión más completa
-de la proteína, también la analizamos en [InterPro](https://www.ebi.ac.uk/interpro/), que junta varias bases de datos de dominios (Pfam, PRINTS, PANTHER, entre otras) en una sola búsqueda.
+PROSITE solo encontró 4 coincidencias puntuales y cortas. Para tener una visión más completa de la proteína, también la analizamos en [InterPro](https://www.ebi.ac.uk/interpro/), que junta varias bases de datos de dominios (Pfam, PRINTS, PANTHER, entre otras) en una sola búsqueda.
 
-Cargamos la secuencia de `data/HTT_correcto.fas` en
-https://www.ebi.ac.uk/interpro/search/sequence/. De todos los resultados que devolvió,
-mostramos solo los que tienen una entrada asignada en InterPro, que son los más relevantes:
+Cargamos la secuencia de `data/HTT_correcto.fas` en https://www.ebi.ac.uk/interpro/search/sequence/. De todos los resultados que devolvió, mostramos solo los que tienen una entrada asignada en InterPro, que son los más relevantes:
 
 | Base de datos | Dominio | Posición | Descripción |
 |---------------|---------|----------|-------------|
@@ -363,14 +350,9 @@ mostramos solo los que tienen una entrada asignada en InterPro, que son los más
 | Pfam | IPR048412 | 1833–2110 | Región "bridge" entre dominios HEAT |
 | GENE3D/SUPERFAMILY | IPR016024 | múltiples | Pliegue tipo ARM |
 
-Lo más relevante de esta lista son las repeticiones HEAT. Son bloques de la proteína que se
-repiten varias veces a lo largo de toda su longitud, y le permiten a la huntingtina engancharse
-con muchas otras proteínas dentro de la célula. Por eso aparece en tantos procesos biológicos
-distintos: estos bloques actúan como puntos de conexión.
+Lo más relevante de esta lista son las repeticiones HEAT. Son bloques de la proteína que se repiten varias veces a lo largo de toda su longitud, y le permiten a la huntingtina engancharse con muchas otras proteínas dentro de la célula. Por eso aparece en tantos procesos biológicos distintos: estos bloques actúan como puntos de conexión.
 
-En conclusión, InterPro da una imagen mucho más completa de la proteína que PROSITE: mientras
-que PROSITE encontró solo 4 motivos genéricos, InterPro identificó la estructura general que
-explica gran parte de cómo funciona la huntingtina.
+En conclusión, InterPro da una imagen mucho más completa de la proteína que PROSITE: mientras que PROSITE encontró solo 4 motivos genéricos, InterPro identificó la estructura general que explica gran parte de cómo funciona la huntingtina.
 
 &nbsp;
 
@@ -392,48 +374,27 @@ Un gen **homólogo** es un gen que viene de un mismo ancestro común. Dentro de 
 existen los genes **ortólogos**. Dos genes son ortólogos cuando se originaron a partir de un
 mismo gen ancestral, después de que una especie se dividió en dos a lo largo de la evolución.
 
-- En **NCBI** (https://www.ncbi.nlm.nih.gov/datasets/gene/3064/#orthologs) encontramos **846
-genes ortólogos** de HTT. La lista incluye organismos muy variados: otros primates (chimpancé,
-marmoset, macaco), roedores (ratón, rata, hámster), otros mamíferos (vaca, oveja, perro, cerdo,
-caballo) y también vertebrados que no son mamíferos, como el pez cebra, la rana y el pollo.
-- En **Ensembl** (https://www.ensembl.org/Homo_sapiens/Gene/Compara_Ortholog?db=core;g=ENSG00000197386)
-encontramos **206 ortólogos**, bastante menos que en NCBI. Pero Ensembl también encontró
-ortólogos en invertebrados, como la mosca de la fruta (*Drosophila melanogaster*, 16.8% de
-identidad) y el gusano *Caenorhabditis elegans* (18.9% de identidad). Esto nos dice que HTT es
-un gen muy antiguo, que ya estaba presente antes de que se separaran los linajes de insectos,
-gusanos y vertebrados. Por otro lado, no se encontró ningún ortólogo en la levadura
-(*Saccharomyces cerevisiae*), lo que tiene sentido porque HTT parece haber aparecido recién con
-la evolución de los animales.
+- En **NCBI** (https://www.ncbi.nlm.nih.gov/datasets/gene/3064/#orthologs) encontramos **846 genes ortólogos** de HTT. La lista incluye organismos muy variados: otros primates (chimpancé, marmoset, macaco), roedores (ratón, rata, hámster), otros mamíferos (vaca, oveja, perro, cerdo, caballo) y también vertebrados que no son mamíferos, como el pez cebra, la rana y el pollo.
+- En **Ensembl** (https://www.ensembl.org/Homo_sapiens/Gene/Compara_Ortholog?db=core;g=ENSG00000197386) encontramos **206 ortólogos**, bastante menos que en NCBI. Pero Ensembl también encontró ortólogos en invertebrados, como la mosca de la fruta (*Drosophila melanogaster*, 16.8% de identidad) y el gusano *Caenorhabditis elegans* (18.9% de identidad). Esto nos dice que HTT es un gen muy antiguo, que ya estaba presente antes de que se separaran los linajes de insectos,
+gusanos y vertebrados. Por otro lado, no se encontró ningún ortólogo en la levadura (*Saccharomyces cerevisiae*), lo que tiene sentido porque HTT parece haber aparecido recién con la evolución de los animales.
 
 #### ¿En qué se diferencian estas bases de datos?
 
-NCBI da una lista más simple, centrada en vertebrados, con datos básicos por organismo
-(símbolo del gen, cromosoma, accession, longitud de la proteína). Ensembl cubre un rango
-taxonómico más amplio, llegando hasta invertebrados, y da mucho más detalle por cada
-ortólogo: porcentaje de identidad, tipo de relación entre los genes (uno a uno, uno a muchos,
-etc.) y nivel de confianza de la asignación.
+NCBI da una lista más simple, centrada en vertebrados, con datos básicos por organismo (símbolo del gen, cromosoma, accession, longitud de la proteína). Ensembl cubre un rango taxonómico más amplio, llegando hasta invertebrados, y da mucho más detalle por cada ortólogo: porcentaje de identidad, tipo de relación entre los genes (uno a uno, uno a muchos, etc.) y nivel de confianza de la asignación.
 
 #### ¿Qué tan comunes son estos genes?
 
-HTT tiene cientos de ortólogos identificados, lo que indica que es un gen muy conservado a lo
-largo de la evolución. No es un gen exclusivo de unas pocas especies, sino que está presente en
-prácticamente todos los animales vertebrados, y también en varios invertebrados.
+HTT tiene cientos de ortólogos identificados, lo que indica que es un gen muy conservado a lo largo de la evolución. No es un gen exclusivo de unas pocas especies, sino que está presente en prácticamente todos los animales vertebrados, y también en varios invertebrados.
 
 #### ¿A qué grupos taxonómicos pertenecen?
 
-Los ortólogos de HTT aparecen en mamíferos, aves, reptiles, anfibios y peces, y también en
-invertebrados como insectos (mosca de la fruta). No se encontró en hongos como la levadura, lo que sugiere que el gen apareció en algún punto temprano de la evolución de los animales y se mantuvo conservado desde entonces.
+Los ortólogos de HTT aparecen en mamíferos, aves, reptiles, anfibios y peces, y también en invertebrados como insectos (mosca de la fruta). No se encontró en hongos como la levadura, lo que sugiere que el gen apareció en algún punto temprano de la evolución de los animales y se mantuvo conservado desde entonces.
 
 ### c) Transcriptos y splicing alternativo
 
 - En **NCBI** (https://www.ncbi.nlm.nih.gov/datasets/gene/3064/#transcripts-and-proteins) encontramos **2 transcriptos** para HTT: `NM_001388492.1` (13.472 pb, proteína de 3.142 aa, el que usamos en este TP) y `NM_002111.8` (13.498 pb, proteína de 3.144 aa). Ambos codifican prácticamente la misma proteína, con una diferencia de 2 aminoácidos.
 
-- En **Ensembl** (https://www.ensembl.org/Homo_sapiens/Gene/TranscriptComparison?db=core;g=ENSG00000197386;r=4:3041363-3243957) encontramos **24 transcriptos**. De esos, solo 6 están clasificados como "Protein coding" (codifican una proteína completa): el principal es HTT-201, que es el mismo que reporta NCBI. Los otros 5
-son variantes más cortas, con proteínas de distinto tamaño (desde 97 hasta 3.086 aminoácidos).
-Los 18 transcriptos restantes no llegan a producir una proteína funcional completa:
-10 son "Retained intron" (conservan intrones sin terminar el splicing), 4 son "Nonsense mediated
-decay" (tienen errores que activan un mecanismo de degradación) y 4 están marcados como
-codificantes pero sin marco de lectura definido.
+- En **Ensembl** (https://www.ensembl.org/Homo_sapiens/Gene/TranscriptComparison?db=core;g=ENSG00000197386;r=4:3041363-3243957) encontramos **24 transcriptos**. De esos, solo 6 están clasificados como "Protein coding" (codifican una proteína completa): el principal es HTT-201, que es el mismo que reporta NCBI. Los otros 5 son variantes más cortas, con proteínas de distinto tamaño (desde 97 hasta 3.086 aminoácidos). Los 18 transcriptos restantes no llegan a producir una proteína funcional completa: 10 son "Retained intron" (conservan intrones sin terminar el splicing), 4 son "Nonsense mediated decay" (tienen errores que activan un mecanismo de degradación) y 4 están marcados como codificantes pero sin marco de lectura definido.
 
 #### ¿Cuáles se expresan y tienen funciones alternativas?
 
@@ -469,49 +430,20 @@ La huntingtina tiene un rol muy importante en el funcionamiento y mantenimiento 
 
 ### f) Vías metabólicas (pathways)
 
-- En **Reactome** (https://reactome.org/content/detail/R-HSA-9023590) encontramos que HTT
-participa en el proceso de expresión génica (transcripción). En el
-[Pathway Browser de Reactome](https://reactome.org/PathwayBrowser/#/R-HSA-8986944&SEL=R-HSA-9023590&PATH=R-HSA-74160,R-HSA-73857,R-HSA-212436&DTAB=AN)
-se puede ver el diagrama interactivo de esta vía. Reactome también reporta una cantidad enorme de proteínas con las que HTT interactúa: **883 en total**, lo que confirma que es una proteína altamente
-conectada dentro de la célula.
+- En **Reactome** (https://reactome.org/content/detail/R-HSA-9023590) encontramos que HTT participa en el proceso de expresión génica (transcripción). En el [Pathway Browser de Reactome](https://reactome.org/PathwayBrowser/#/R-HSA-8986944&SEL=R-HSA-9023590&PATH=R-HSA-74160,R-HSA-73857,R-HSA-212436&DTAB=AN) se puede ver el diagrama interactivo de esta vía. Reactome también reporta una cantidad enorme de proteínas con las que HTT interactúa: **883 en total**, lo que confirma que es una proteína altamente conectada dentro de la célula.
 
-- En **KEGG** (https://www.kegg.jp/kegg-bin/search_pathway_text?map=map&keyword=htt&mode=1&viewImage=true) HTT aparece en dos
-pathways principales: **"Huntington disease"**, que describe específicamente los mecanismos
-moleculares de la enfermedad, y **"Pathways of neurodegeneration - multiple diseases"**, un
-pathway más general que agrupa los mecanismos compartidos entre varias enfermedades
-neurodegenerativas (Alzheimer, Parkinson, Huntington, entre otras). También aparece
-relacionada con el procesamiento del ARN mensajero dentro de la célula.
+- En **KEGG** (https://www.kegg.jp/kegg-bin/search_pathway_text?map=map&keyword=htt&mode=1&viewImage=true) HTT aparece en dos pathways principales: **"Huntington disease"**, que describe específicamente los mecanismos moleculares de la enfermedad, y **"Pathways of neurodegeneration - multiple diseases"**, un pathway más general que agrupa los mecanismos compartidos entre varias enfermedades neurodegenerativas (Alzheimer, Parkinson, Huntington, entre otras). También aparece relacionada con el procesamiento del ARN mensajero dentro de la célula.
 
-HTT es una proteína central en el funcionamiento de la célula, y su mal funcionamiento no solo está
-implicado en la enfermedad de Huntington, sino que comparte mecanismos con otras enfermedades neurodegenerativas.
+HTT es una proteína central en el funcionamiento de la célula, y su mal funcionamiento no solo está implicado en la enfermedad de Huntington, sino que comparte mecanismos con otras enfermedades neurodegenerativas.
 
 ### g) Variantes genéticas en dbSNP
 
-Al buscar variantes de HTT en [dbSNP](https://www.ncbi.nlm.nih.gov/snp/?term=htt) filtrando por
-"pathogenic" (patogénicas), encontramos que la mayoría de las variantes catalogadas en HTT son
-benignas. Esto tiene sentido, porque como ya explicamos, la causa principal de la enfermedad de Huntington no es un cambio puntual en el ADN, sino la expansión anormal de repeticiones CAG, que dbSNP no cataloga de la misma forma que un SNP común.
+Al buscar variantes de HTT en [dbSNP](https://www.ncbi.nlm.nih.gov/snp/?term=htt) filtrando por "pathogenic" (patogénicas), encontramos que la mayoría de las variantes catalogadas en HTT son benignas. Esto tiene sentido, porque como ya explicamos, la causa principal de la enfermedad de Huntington no es un cambio puntual en el ADN, sino la expansión anormal de repeticiones CAG, que dbSNP no cataloga de la misma forma que un SNP común.
 
-Entre las pocas variantes marcadas como patogénicas, elegimos
-[**rs745583559**](https://www.ncbi.nlm.nih.gov/snp/rs745583559), una deleción de un solo
-nucleótido que provoca un corrimiento del marco de lectura en la proteína. Es una
-variante extremadamente rara: a nivel global tiene una frecuencia de apenas 0.0000036 (5 casos
-en 1.400.526 personas analizadas en gnomAD).
+Entre las pocas variantes marcadas como patogénicas, elegimos [**rs745583559**](https://www.ncbi.nlm.nih.gov/snp/rs745583559), una deleción de un solo nucleótido que provoca un corrimiento del marco de lectura en la proteína. Es una variante extremadamente rara: a nivel global tiene una frecuencia de apenas 0.0000036 (5 casos en 1.400.526 personas analizadas en gnomAD).
 
-Mirando la frecuencia por población, la mayoría de los grupos (asiático, africano, americano,
-judío Ashkenazi, medio oriental) no presentan ningún caso registrado. El único grupo donde se
-detectó algún caso es la población **europea**, aunque con una frecuencia igualmente muy baja
-(0.0000043). Esto confirma que se trata de un caso aislado y no de una variante representativa
-de la enfermedad en la población general.
+Mirando la frecuencia por población, la mayoría de los grupos (asiático, africano, americano, judío Ashkenazi, medio oriental) no presentan ningún caso registrado. El único grupo donde se detectó algún caso es la población **europea**, aunque con una frecuencia igualmente muy baja (0.0000043). Esto confirma que se trata de un caso aislado y no de una variante representativa de la enfermedad en la población general.
 
 #### Curiosidad: ¿qué poblaciones son más afectadas por Huntington?
 
-Como la causa real de la enfermedad no es un SNP, buscamos información en otros lados. Según un
-estudio publicado en 2018 en PubMed ([The molecular epidemiology of Huntington disease is related to intermediate allele frequency and haplotype in the general population](https://pubmed.ncbi.nlm.nih.gov/29460498/)),
-la enfermedad de Huntington es bastante más común en poblaciones de **ascendencia europea**
-(Europa, Norteamérica, Australia) que en poblaciones de Asia o África. La razón estaría en los
-**alelos intermedios** del gen HTT (27 a 35 repeticiones CAG, todavía sanos pero con riesgo de
-expandirse en la siguiente generación), que son mucho más comunes en europeos e
-hispanoamericanos, y casi inexistentes en poblaciones africanas y del este asiático. Esto se
-debe a que las variantes genéticas que suelen acompañar a estos alelos con muchas
-repeticiones (lo que en genética se llama "haplotipo": un conjunto de variantes que se heredan
-juntas) son comunes en europeos pero raras en esas otras poblaciones.
+Como la causa real de la enfermedad no es un SNP, buscamos información en otros lados. Según un estudio publicado en 2018 en PubMed ([The molecular epidemiology of Huntington disease is related to intermediate allele frequency and haplotype in the general population](https://pubmed.ncbi.nlm.nih.gov/29460498/)), la enfermedad de Huntington es bastante más común en poblaciones de **ascendencia europea** (Europa, Norteamérica, Australia) que en poblaciones de Asia o África. La razón estaría en los **alelos intermedios** del gen HTT (27 a 35 repeticiones CAG, todavía sanos pero con riesgo de expandirse en la siguiente generación), que son mucho más comunes en europeos e hispanoamericanos, y casi inexistentes en poblaciones africanas y del este asiático. Esto se debe a que las variantes genéticas que suelen acompañar a estos alelos con muchas repeticiones (lo que en genética se llama "haplotipo": un conjunto de variantes que se heredan juntas) son comunes en europeos pero raras en esas otras poblaciones.
