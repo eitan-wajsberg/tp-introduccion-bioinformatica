@@ -502,3 +502,16 @@ judío Ashkenazi, medio oriental) no presentan ningún caso registrado. El únic
 detectó algún caso es la población **europea**, aunque con una frecuencia igualmente muy baja
 (0.0000043). Esto confirma que se trata de un caso aislado y no de una variante representativa
 de la enfermedad en la población general.
+
+#### Curiosidad: ¿qué poblaciones son más afectadas por Huntington?
+
+Como la causa real de la enfermedad no es un SNP, buscamos información en otros lados. Según un
+estudio publicado en 2018 en PubMed ([The molecular epidemiology of Huntington disease is related to intermediate allele frequency and haplotype in the general population](https://pubmed.ncbi.nlm.nih.gov/29460498/)),
+la enfermedad de Huntington es bastante más común en poblaciones de **ascendencia europea**
+(Europa, Norteamérica, Australia) que en poblaciones de Asia o África. La razón estaría en los
+**alelos intermedios** del gen HTT (27 a 35 repeticiones CAG, todavía sanos pero con riesgo de
+expandirse en la siguiente generación), que son mucho más comunes en europeos e
+hispanoamericanos, y casi inexistentes en poblaciones africanas y del este asiático. Esto se
+debe a que las variantes genéticas que suelen acompañar a estos alelos con muchas
+repeticiones (lo que en genética se llama "haplotipo": un conjunto de variantes que se heredan
+juntas) son comunes en europeos pero raras en esas otras poblaciones.
